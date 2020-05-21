@@ -1,0 +1,21 @@
+{
+    "name": "thomasbley/example_tasks_php",
+    "description": "PHP Example Tasks REST API",
+    "license": "MIT",
+    "config": {
+        "secure-http": true,
+        "platform": {
+            "php": "7.3"
+        },
+        "vendor-dir": "app/vendor"
+    },
+    "require": {
+        "php": ">=7.3"
+    },
+    "autoload": {
+        "psr-4": { "TaskService\\": "app/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "TaskService\\Tests\\": "tests/" }
+    }
+}

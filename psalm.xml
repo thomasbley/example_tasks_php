@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<psalm
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config config.xsd"
+    autoloader="tests/autoload.php"
+    ignoreInternalFunctionNullReturn="false"
+    ignoreInternalFunctionFalseReturn="true"
+    checkForThrowsInGlobalScope="true"
+    findUnusedCode="true"
+    totallyTyped="false"
+>
+    <projectFiles>
+        <directory name="app/" />
+        <directory name="tests/" />
+        <ignoreFiles>
+            <directory name="app/vendor" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <PropertyNotSetInConstructor errorLevel="suppress" />
+        <MissingPropertyType errorLevel="suppress" />
+        <InternalMethod errorLevel="suppress" />
+        
+        <UnusedClass errorLevel="info">
+            <errorLevel type="suppress">
+                <directory name="tests/" />
+            </errorLevel>
+        </UnusedClass>
+        
+    </issueHandlers>
+</psalm>

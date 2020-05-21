@@ -1,0 +1,26 @@
+[mysqld]
+innodb_buffer_pool_size = 1G
+innodb_log_file_size = 128M
+innodb_flush_log_at_trx_commit = 0
+max_allowed_packet = 8M
+max_connections = 500
+
+tmp_table_size = 64M
+max_heap_table_size = 64M
+
+general_log_file = /tmp/mysql.log
+general_log = 1
+
+default_authentication_plugin = mysql_native_password
+
+server_id = 1
+log_bin
+
+gtid_mode = ON
+enforce_gtid_consistency = ON
+performance_schema = OFF
+
+query_cache_size = 0
+query_cache_type = OFF
+
+skip_name_resolve

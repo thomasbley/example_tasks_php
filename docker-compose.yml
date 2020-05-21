@@ -1,0 +1,60 @@
+version: "2"
+
+services:
+  php:
+    build: ./docker/php73
+    image: example_php
+    cap_drop: [all]
+    cap_add: [chown, setgid, setuid, kill]
+    volumes:
+      - ./:/var/www
+    networks:
+      - backend
+    restart: unless-stopped
+    stop_grace_period: 30s
+    stop_signal: SIGQUIT
+  nginx:
+    image: nginx:stable-alpine
+    cap_drop: [all]
+    cap_add: [chown, setuid, setgid, dac_override, net_bind_service]
+    ports:
+      - 8080:8080
+    volumes:
+      - ./tests/coverage:/var/www/coverage
+      - ./docs/swaggerui:/var/www/docs
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - backend
+    restart: unless-stopped
+  mysql:
+    image: mysql:5.7
+    cap_drop: [all]
+    cap_add: [chown, setuid, setgid, dac_override]
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/container/mysql:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tasks
+    networks:
+      - backend
+    restart: unless-stopped
+  memcache:
+    image: memcached:alpine
+    cap_drop: [all]
+    command: '-m 128 -v'
+    ports:
+      - 11211:11211
+    networks:
+      - backend
+    restart: unless-stopped
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    
