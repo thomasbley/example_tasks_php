@@ -29,8 +29,7 @@ jXTxQp3pKS4twqXckLhU9yPTAHqkEluLVQ188cUOGt0Tk/nxiySJRF2m00Virbxr
 ozcwKcBR88PnfjyPyCC5chcCAwEAAQ==
 -----END PUBLIC KEY-----';
 
-    // example private key for local usage,
-    // will be different for different environments
+    // example private key only for local usage
     public $privateKey = '-----BEGIN RSA PRIVATE KEY-----
 MIIJKQIBAAKCAgEAoCOg744fgP2MAf8BcoHg11Ldd9YlAOT14qvFvtlyxXdR57SY
 wVkkfZCPvJ9ctj1wa9xUmF+/ClPJYFb5JuzjCiITU+xXhC9ONXnKH2ve1UF48fCi
