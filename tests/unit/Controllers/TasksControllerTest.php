@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use TaskService\Controllers\TasksController;
 use TaskService\Exceptions\HttpException;
 use TaskService\Framework\App;
+use TaskService\Models\Customer;
 use TaskService\Models\Task;
 use TaskService\Repositories\TasksRepository;
-use TaskService\Models\Customer;
 
 class TasksControllerTest extends TestCase
 {

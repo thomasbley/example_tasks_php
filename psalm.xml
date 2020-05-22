@@ -6,7 +6,6 @@
     autoloader="tests/autoload.php"
     ignoreInternalFunctionNullReturn="false"
     ignoreInternalFunctionFalseReturn="true"
-    checkForThrowsInGlobalScope="true"
     findUnusedCode="true"
     totallyTyped="false"
 >

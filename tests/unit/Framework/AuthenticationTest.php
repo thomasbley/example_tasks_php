@@ -2,9 +2,9 @@
 
 namespace TaskService\Test\Unit\Framework;
 
+use PHPUnit\Framework\TestCase;
 use TaskService\Config\Config;
 use TaskService\Framework\Authentication;
-use PHPUnit\Framework\TestCase;
 use TaskService\Models\Customer;
 
 class AuthenticationTest extends TestCase
@@ -25,7 +25,7 @@ class AuthenticationTest extends TestCase
         $actual = json_decode(base64_decode(strtr($payload, '-_', '+/')), true, 10);
 
         $this->assertNotEmpty($actual);
-        $this->assertLessThan(time() + 23*7200, $actual['exp']);
+        $this->assertLessThan(time() + 23 * 7200, $actual['exp']);
         $this->assertSame('42', $actual['sub']);
 
         $actual = json_decode(base64_decode(strtr($header, '-_', '+/')), true, 10);

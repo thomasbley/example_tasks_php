@@ -68,6 +68,8 @@ class MigrationsRepositoryTest extends TestCase
     public function testIsImportedNoSchema(): void
     {
         $map = ['getDatabase' => $this->createMock(PDO::class)];
+
+        /** @var mixed $app */
         $app = $this->createConfiguredMock(App::class, $map);
 
         $app->getDatabase()->expects($this->once())
