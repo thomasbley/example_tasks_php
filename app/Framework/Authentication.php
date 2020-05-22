@@ -48,7 +48,7 @@ class Authentication
             throw new Exception('signing failed');
         }
 
-        return $data . '.' . $this->urlBase64Encode($signature);
+        return 'Bearer ' . $data . '.' . $this->urlBase64Encode($signature);
     }
 
     protected function urlBase64Decode(string $string): string

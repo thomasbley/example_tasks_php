@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use TaskService\Config\Config;
 use TaskService\Controllers\TasksController;
 use TaskService\Framework\App;
+use TaskService\Framework\Authentication;
 use TaskService\Framework\Output;
 use TaskService\Framework\Router;
 use TaskService\Repositories\MigrationsRepository;
@@ -64,6 +65,12 @@ class AppTest extends TestCase
     {
         $app = new App([], [], [], []);
         $this->assertInstanceOf(Output::class, $app->getOutput());
+    }
+
+    public function testGetAuthentication(): void
+    {
+        $app = new App([], [], [], []);
+        $this->assertInstanceOf(Authentication::class, $app->getAuthentication());
     }
 
     public function testGetConfig(): void
