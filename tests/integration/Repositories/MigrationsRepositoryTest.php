@@ -2,12 +2,12 @@
 
 namespace TaskService\Test\Integration\Repositories;
 
-use TaskService\Framework\App;
-use TaskService\Repositories\MigrationsRepository;
 use InvalidArgumentException;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\TestCase;
+use TaskService\Framework\App;
+use TaskService\Repositories\MigrationsRepository;
 
 class MigrationsRepositoryTest extends TestCase
 {
@@ -27,14 +27,6 @@ class MigrationsRepositoryTest extends TestCase
         $this->app->getDatabase()->rollBack();
 
         unlink('/tmp/migration.sql');
-    }
-
-    protected function createSqlFile(): void
-    {
-        $query = 'INSERT INTO task SET customer_id = 42, title = "test", duedate = "2020-05-22", completed = 0;';
-        file_put_contents('/tmp/migration.sql', $query);
-
-        $this->assertFileIsReadable('/tmp/migration.sql');
     }
 
     public function testImportSqlFile(): void
@@ -84,5 +76,13 @@ class MigrationsRepositoryTest extends TestCase
 
         $repo = new MigrationsRepository($app);
         $this->assertFalse($repo->isImported('imported.sql'));
+    }
+
+    protected function createSqlFile(): void
+    {
+        $query = 'INSERT INTO task SET customer_id = 42, title = "test", duedate = "2020-05-22", completed = 0;';
+        file_put_contents('/tmp/migration.sql', $query);
+
+        $this->assertFileIsReadable('/tmp/migration.sql');
     }
 }

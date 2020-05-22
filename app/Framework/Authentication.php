@@ -51,7 +51,6 @@ class Authentication
         return $data . '.' . $this->urlBase64Encode($signature);
     }
 
-
     protected function urlBase64Decode(string $string): string
     {
         return base64_decode(strtr($string, '-_', '+/'));
