@@ -31,7 +31,7 @@ class TasksController
         return $repo->createTask($customer, $title, $duedate);
     }
 
-    public function updateTask(Customer $customer, Task $task): Task
+    public function updateTask(Customer $customer, Task $task): void
     {
         if (empty($task->title)) {
             throw new HttpException('missing title', 400);
