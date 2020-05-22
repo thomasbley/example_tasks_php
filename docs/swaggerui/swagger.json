@@ -1,0 +1,200 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Example Tasks PHP API",
+        "version": "1",
+        "description": "Example API for managing tasks."
+    },
+    "host": "127.0.0.1:8080",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/v1/tasks": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id": 0,
+                                    "title": "",
+                                    "duedate": "2020-05-22",
+                                    "completed": false
+                                }
+                            ]
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Task"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "headers": {},
+                        "examples": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "error": "internal server error"
+                            }
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/InternalServerError"
+                        }
+                    }
+                },
+                "summary": "",
+                "operationId": "",
+                "description": "Get current or completed tasks",
+                "tags": [
+                    "Tasks"
+                ],
+                "parameters": [
+                    {
+                        "name": "completed",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "x-example": "1",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/v1/tasks{taskId}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "id": 0,
+                                "title": "",
+                                "duedate": "2020-05-22",
+                                "completed": false
+                            }
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/Task"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "headers": {},
+                        "examples": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "headers": {},
+                        "examples": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "error": "internal server error"
+                            }
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/InternalServerError"
+                        }
+                    }
+                },
+                "summary": "",
+                "operationId": "",
+                "description": "Get single task",
+                "tags": [
+                    "Tasks"
+                ],
+                "parameters": [
+                    {
+                        "name": "taskId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Task": {
+            "type": "object",
+            "required": [
+                "id",
+                "title",
+                "duedate",
+                "completed"
+            ],
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "duedate": {
+                    "type": "string",
+                    "description": "Y-m-d"
+                },
+                "completed": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "InternalServerError": {
+            "type": "object",
+            "required": [
+                "error"
+            ],
+            "properties": {
+                "error": {
+                    "type": "string",
+                    "enum": [
+                        "internal server error"
+                    ]
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "bearer": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "Authorization"
+        }
+    },
+    "tags": [
+        {
+            "name": "Tasks"
+        }
+    ]
+}
