@@ -2,6 +2,7 @@
 
 namespace TaskService\Test\Unit\Framework;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use TaskService\Config\Config;
 use TaskService\Framework\Authentication;
@@ -68,5 +69,16 @@ class AuthenticationTest extends TestCase
 
         $actual = $authentication->getCustomer($token, $config->publicKey);
         $this->assertNull($actual);
+    }
+
+    public function testGetCustomerInvalidKey(): void
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('signing failed');
+
+        $customer = new Customer();
+        $authentication = new Authentication();
+
+        @$authentication->getToken($customer, '');
     }
 }
