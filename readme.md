@@ -64,8 +64,10 @@ PHP Example Tasks REST API
 
 #### URLs
 
-    http://127.0.0.1:8080/docs/
-    http://127.0.0.1:8080/coverage/
+    http://127.0.0.1:8080/v1/tasks (API endpoint)
+
+    http://127.0.0.1:8080/docs/ (SwaggerUI)
+    http://127.0.0.1:8080/coverage/ (code coverage)
 
 #### Command line tests
 
