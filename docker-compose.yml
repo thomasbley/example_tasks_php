@@ -34,7 +34,7 @@ services:
       - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./docker/container/mysql:/etc/mysql/conf.d
+      - ./docker/mysql/mysql.conf:/etc/mysql/conf.d/mysql.cnf
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tasks

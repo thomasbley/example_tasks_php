@@ -15,6 +15,9 @@ PHP Example Tasks REST API
     # setup database
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell update_database.php
 
+    # generate bearer token for customer id 42
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php 42
+
     # access/error logs
     docker-compose logs -f
 
@@ -23,7 +26,10 @@ PHP Example Tasks REST API
     docker-compose exec -u $(id -u) php sh
 
     # start mysql client
-    docker-compose exec mysql mysql -u root -proot
+    docker-compose exec mysql mysql -u root -proot tasks
+
+    # show query log
+    docker-compose exec mysql sh -c "tail -f /tmp/mysql.log"
 
     # start memcache client
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm memcache_client
@@ -59,6 +65,16 @@ PHP Example Tasks REST API
     http://127.0.0.1:8080/docs/
     http://127.0.0.1:8080/coverage/
 
-    http://127.0.0.1:8080/v1/tasks
-    http://127.0.0.1:8080/v1/tasks/1234
-    http://127.0.0.1:8080/v1/tasks?completed=1
+#### Command line tests
+
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php 42
+
+    export TOKEN=...
+    export BASE=http://127.0.0.1:8080
+
+    curl -i -X POST -d '{"title":"test","duedate":"2020-05-22"}' -H "Authorization: Bearer ${TOKEN}" "${BASE}/v1/tasks"
+    curl -i -X GET -H "Authorization: Bearer ${TOKEN}" "${BASE}/v1/tasks"
+    curl -i -X PUT -d '{"title":"test","duedate":"2020-05-22","completed":"1"}' -H "Authorization: Bearer ${TOKEN}" "${BASE}/v1/tasks/1"
+    curl -i -X GET -H "Authorization: Bearer ${TOKEN}" "${BASE}/v1/tasks?completed=1"
+    curl -i -X GET -H "Authorization: Bearer ${TOKEN}" "${BASE}/v1/tasks/1"
+    curl -i -X DELETE -H "Authorization: Bearer ${TOKEN}" "${BASE}/v1/tasks/1"
