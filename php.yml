@@ -1,0 +1,33 @@
+name: build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build php container
+      run: docker-compose build php
+
+    - name: Validate composer file
+      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer validate --no-cache
+
+    - name: Run composer
+      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer
+
+    - name: Create coverage directory
+      run: mkdir -p tests/coverage && chmod 0777 tests/coverage
+
+    - name: Run phpcsfixer
+      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpcsfixer
+      
+    - name: Run psalm
+      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm psalm
+
+    - name: Run phpunit
+      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpunit
+
+    - name: Run phploc
+      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phploc
