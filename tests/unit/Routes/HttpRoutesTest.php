@@ -12,6 +12,7 @@ use TaskService\Framework\Router;
 use TaskService\Models\Customer;
 use TaskService\Models\Task;
 use TaskService\Routes\HttpRoutes;
+use TaskService\Serializer\TasksSerializer;
 
 class HttpRoutesTest extends TestCase
 {
@@ -27,6 +28,7 @@ class HttpRoutesTest extends TestCase
             'getOutput' => $this->createMock(Output::class),
             'getRouter' => new Router(),
             'getTasksController' => $this->createMock(TasksController::class),
+            'getTasksSerializer' => $this->createMock(TasksSerializer::class),
         ];
 
         $this->customer = $customer;
@@ -35,16 +37,24 @@ class HttpRoutesTest extends TestCase
 
     public function testGetCurrentTasks(): void
     {
+        $task = new Task();
+
         $this->app->method('getHeader')
             ->willReturnMap($this->getHeaders('GET', '/v1/tasks'));
 
         $this->app->getTasksController()->expects($this->once())
             ->method('getCurrentTasks')
-            ->with($this->customer);
+            ->with($this->customer)
+            ->willReturn([$task]);
+
+        $this->app->getTasksSerializer()->expects($this->once())
+            ->method('serializeTasks')
+            ->with([$task])
+            ->willReturn(['some-data']);
 
         $this->app->getOutput()->expects($this->once())
             ->method('json')
-            ->with($this->isType('array'), 200);
+            ->with(['some-data'], 200);
 
         $routes = new HttpRoutes($this->app);
         $routes->run();
@@ -52,6 +62,8 @@ class HttpRoutesTest extends TestCase
 
     public function testGetCompletedTasks(): void
     {
+        $task = new Task();
+
         $this->app->method('getHeader')
             ->willReturnMap($this->getHeaders('GET', '/v1/tasks'));
 
@@ -60,11 +72,17 @@ class HttpRoutesTest extends TestCase
 
         $this->app->getTasksController()->expects($this->once())
             ->method('getCompletedTasks')
-            ->with($this->customer);
+            ->with($this->customer)
+            ->willReturn([$task]);
+
+        $this->app->getTasksSerializer()->expects($this->once())
+            ->method('serializeTasks')
+            ->with([$task])
+            ->willReturn(['some-data']);
 
         $this->app->getOutput()->expects($this->once())
             ->method('json')
-            ->with($this->isType('array'), 200);
+            ->with(['some-data'], 200);
 
         $routes = new HttpRoutes($this->app);
         $routes->run();
@@ -88,16 +106,24 @@ class HttpRoutesTest extends TestCase
 
     public function testGetTask(): void
     {
+        $task = new Task();
+
         $this->app->method('getHeader')
             ->willReturnMap($this->getHeaders('GET', '/v1/tasks/123'));
 
         $this->app->getTasksController()->expects($this->once())
             ->method('getTask')
-            ->with($this->customer, '123');
+            ->with($this->customer, '123')
+            ->willReturn($task);
+
+        $this->app->getTasksSerializer()->expects($this->once())
+            ->method('serializeTask')
+            ->with($task)
+            ->willReturn(['some-data']);
 
         $this->app->getOutput()->expects($this->once())
             ->method('json')
-            ->with($this->isType('array'), 200);
+            ->with(['some-data'], 200);
 
         $routes = new HttpRoutes($this->app);
         $routes->run();
@@ -105,6 +131,8 @@ class HttpRoutesTest extends TestCase
 
     public function testCreateTask(): void
     {
+        $task = new Task();
+
         $this->app->method('getHeader')
             ->willReturnMap($this->getHeaders('POST', '/v1/tasks'));
 
@@ -113,11 +141,17 @@ class HttpRoutesTest extends TestCase
 
         $this->app->getTasksController()->expects($this->once())
             ->method('createTask')
-            ->with($this->customer, 'Test', '2020-05-22');
+            ->with($this->customer, 'Test', '2020-05-22')
+            ->willReturn($task);
+
+        $this->app->getTasksSerializer()->expects($this->once())
+            ->method('serializeTask')
+            ->with($task)
+            ->willReturn(['some-data']);
 
         $this->app->getOutput()->expects($this->once())
             ->method('json')
-            ->with($this->isType('array'), 201);
+            ->with(['some-data'], 201);
 
         $routes = new HttpRoutes($this->app);
         $routes->run();
@@ -141,8 +175,14 @@ class HttpRoutesTest extends TestCase
             ->method('updateTask')
             ->with($this->customer, $task);
 
+        $this->app->getTasksSerializer()->expects($this->once())
+            ->method('serializeTask')
+            ->with($task)
+            ->willReturn(['some-data']);
+
         $this->app->getOutput()->expects($this->once())
-            ->method('noContent');
+            ->method('json')
+            ->with(['some-data'], 200);
 
         $routes = new HttpRoutes($this->app);
         $routes->run();

@@ -66,7 +66,7 @@ class HttpRoutes
 
             $app->getTasksController()->updateTask($customer, $task);
 
-            $app->getOutput()->noContent();
+            $app->getOutput()->json($app->getTasksSerializer()->serializeTask($task), 200);
         });
 
         $router->delete('/v1/tasks/(\d+)', function (int $taskId) use ($app, $customer): void {
