@@ -20,7 +20,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./tests/coverage:/var/www/coverage
+      - coverage-data:/var/www/coverage
       - ./docs/swaggerui:/var/www/docs
       - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
@@ -57,4 +57,4 @@ networks:
 
 volumes:
   mysql-data:
-    
+  coverage-data:

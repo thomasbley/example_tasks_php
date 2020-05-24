@@ -7,7 +7,8 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
     && rm /etc/php7/conf.d/pcov.ini
 
 RUN addgroup -g 82 -S www-data \
-    && adduser -u 82 -h /var/www -D -S -G www-data www-data
+    && adduser -u 82 -h /var/www -D -S -G www-data www-data \
+    && mkdir -m 0777 /var/coverage
 
 # php global setting
 COPY ./php.ini /etc/php7/php.ini
@@ -18,5 +19,7 @@ COPY ./php-fpm.conf /etc/php7/php-fpm.d/www.conf
 WORKDIR /var/www
 
 EXPOSE 9000
+
+VOLUME /var/coverage
 
 CMD [ "php-fpm7", "-F" ]

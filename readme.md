@@ -36,9 +36,6 @@ PHP Example Tasks REST API
     # start memcache client
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm memcache_client
 
-    # cleanup coverage
-    rm -rf tests/coverage
-
     # remove containers/images/volumes
     docker-compose down
     docker images purge
