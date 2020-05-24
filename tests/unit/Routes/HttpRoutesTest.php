@@ -1,6 +1,6 @@
 <?php
 
-namespace TaskService\Test\Unit\Routes;
+namespace TaskService\Tests\Unit\Routes;
 
 use PHPUnit\Framework\TestCase;
 use TaskService\Controllers\TasksController;

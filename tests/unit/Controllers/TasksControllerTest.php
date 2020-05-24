@@ -1,6 +1,6 @@
 <?php
 
-namespace TaskService\Test\Unit\Controllers;
+namespace TaskService\Tests\Unit\Controllers;
 
 use PHPUnit\Framework\TestCase;
 use TaskService\Controllers\TasksController;

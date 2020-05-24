@@ -1,6 +1,6 @@
 <?php
 
-namespace TaskService\Test\Unit\Framework;
+namespace TaskService\Tests\Unit\Framework;
 
 use Exception;
 use PHPUnit\Framework\TestCase;

@@ -1,6 +1,6 @@
 <?php
 
-namespace TaskService\Test\Integration\Repositories;
+namespace TaskService\Tests\Integration\Repositories;
 
 use InvalidArgumentException;
 use PDO;

@@ -1,6 +1,6 @@
 <?php
 
-namespace TaskService\Test\Integration\Infrastructure;
+namespace TaskService\Tests\Integration\Infrastructure;
 
 use PDO;
 use PHPUnit\Framework\TestCase;

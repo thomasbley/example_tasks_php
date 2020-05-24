@@ -8,6 +8,7 @@ PHP Example Tasks REST API
 #### Setup
 
     # setup composer
+    mkdir -m 0777 app/vendor
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer
 
     # start containers
