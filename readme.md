@@ -70,7 +70,7 @@ PHP Example Tasks REST API
 
     http://127.0.0.1:8080/docs/ (SwaggerUI)
     http://127.0.0.1:8080/coverage/ (code coverage)
-    http://127.0.0.1:8025/ (MailHog UI, catch all outgoing emails)
+    http://127.0.0.1:8025/ (MailHog, catches all outgoing emails)
 
 #### Command line tests
 
