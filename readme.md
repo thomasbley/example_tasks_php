@@ -18,8 +18,9 @@ PHP Example Tasks REST API
     # setup database
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell update_database.php
 
-    # generate bearer token for customer id 42
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php 42
+    # generate bearer token for customer id 42 with email foo.bar@example.com
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php 42 \
+        foo.bar@example.com
 
     # access/error logs
     docker-compose logs -f
@@ -50,9 +51,12 @@ PHP Example Tasks REST API
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpcsfixer
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phploc
 
-#### Tests, monitoring
+#### Tests
 
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpunit
+
+#### Monitoring
+
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm fpm_status
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm memcache_status
 
@@ -69,14 +73,16 @@ PHP Example Tasks REST API
 
 #### Command line tests
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php 42
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php 42 \
+        foo.bar@example.com
 
     export TOKEN=...
     export BASE=http://127.0.0.1:8080
 
     curl -i -X POST -d '{"title":"test","duedate":"2020-05-22"}' -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks"
     curl -i -X GET -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks"
-    curl -i -X PUT -d '{"title":"test","duedate":"2020-05-22","completed":"1"}' -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks/1"
+    curl -i -X PUT -d '{"title":"test","duedate":"2020-05-22","completed":"1"}' -H "Authorization: ${TOKEN}" \
+        "${BASE}/v1/tasks/1"
     curl -i -X GET -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks?completed=1"
     curl -i -X GET -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks/1"
     curl -i -X DELETE -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks/1"
