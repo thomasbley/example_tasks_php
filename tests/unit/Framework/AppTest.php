@@ -13,6 +13,7 @@ use TaskService\Repositories\MigrationsRepository;
 use TaskService\Repositories\TasksRepository;
 use TaskService\Routes\HttpRoutes;
 use TaskService\Serializer\TasksSerializer;
+use TaskService\Services\EmailService;
 
 class AppTest extends TestCase
 {
@@ -77,6 +78,12 @@ class AppTest extends TestCase
     {
         $app = new App([], [], [], []);
         $this->assertInstanceOf(Config::class, $app->getConfig());
+    }
+
+    public function testGetEmailService(): void
+    {
+        $app = new App([], [], [], []);
+        $this->assertInstanceOf(EmailService::class, $app->getEmailService());
     }
 
     public function testGetTasksController(): void

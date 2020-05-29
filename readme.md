@@ -82,7 +82,7 @@ PHP Example Tasks REST API
 
     curl -i -X POST -d '{"title":"test","duedate":"2020-05-22"}' -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks"
     curl -i -X GET -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks"
-    curl -i -X PUT -d '{"title":"test","duedate":"2020-05-22","completed":"1"}' -H "Authorization: ${TOKEN}" \
+    curl -i -X PUT -d '{"title":"test","duedate":"2020-05-22","completed":true}' -H "Authorization: ${TOKEN}" \
         "${BASE}/v1/tasks/1"
     curl -i -X GET -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks?completed=1"
     curl -i -X GET -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks/1"

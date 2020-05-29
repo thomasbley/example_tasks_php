@@ -9,6 +9,8 @@ use TaskService\Framework\App;
 use TaskService\Models\Customer;
 use TaskService\Models\Task;
 use TaskService\Repositories\TasksRepository;
+use TaskService\Services\EmailService;
+use TaskService\Views\TaskCompletedEmail;
 
 class TasksControllerTest extends TestCase
 {
@@ -18,7 +20,10 @@ class TasksControllerTest extends TestCase
 
     protected function setUp(): void
     {
-        $map = ['getTasksRepository' => $this->createMock(TasksRepository::class)];
+        $map = [
+            'getTasksRepository' => $this->createMock(TasksRepository::class),
+            'getEmailService' => $this->createMock(EmailService::class),
+        ];
 
         $this->customer = new Customer();
         $this->app = $this->createConfiguredMock(App::class, $map);
@@ -157,6 +162,11 @@ class TasksControllerTest extends TestCase
         $task->id = 42;
         $task->title = 'test';
         $task->duedate = '2020-05-22';
+        $task->completed = true;
+
+        $email = new TaskCompletedEmail();
+        $email->customer = $this->customer;
+        $email->task = $task;
 
         $this->app->getTasksRepository()->expects($this->once())
             ->method('taskExists')
@@ -166,6 +176,10 @@ class TasksControllerTest extends TestCase
         $this->app->getTasksRepository()->expects($this->once())
             ->method('updateTask')
             ->with($task);
+
+        $this->app->getEmailService()->expects($this->once())
+            ->method('sendEmail')
+            ->with($email);
 
         $controller = new TasksController($this->app);
         $controller->updateTask($this->customer, $task);

@@ -10,6 +10,7 @@ use TaskService\Repositories\MigrationsRepository;
 use TaskService\Repositories\TasksRepository;
 use TaskService\Routes\HttpRoutes;
 use TaskService\Serializer\TasksSerializer;
+use TaskService\Services\EmailService;
 
 class App
 {
@@ -119,6 +120,11 @@ class App
     public function getAuthentication(): Authentication
     {
         return new Authentication();
+    }
+
+    public function getEmailService(): EmailService
+    {
+        return new EmailService();
     }
 
     public function getTasksController(): TasksController
