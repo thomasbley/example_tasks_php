@@ -19,8 +19,8 @@ PHP Example Tasks REST API
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell update_database.php
 
     # generate bearer token for customer id "42" with email "foo.bar@example.com"
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php 42 \
-        foo.bar@example.com
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php \
+        42 foo.bar@example.com
 
     # access/error logs
     docker-compose logs -f
@@ -74,8 +74,8 @@ PHP Example Tasks REST API
 
 #### Command line tests
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php 42 \
-        foo.bar@example.com
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php \
+        42 foo.bar@example.com
 
     export TOKEN=...
     export BASE=http://127.0.0.1:8080
