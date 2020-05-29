@@ -18,7 +18,7 @@ PHP Example Tasks REST API
     # setup database
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell update_database.php
 
-    # generate bearer token for customer id 42 with email foo.bar@example.com
+    # generate bearer token for customer id "42" with email "foo.bar@example.com"
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php 42 \
         foo.bar@example.com
 
@@ -32,7 +32,7 @@ PHP Example Tasks REST API
     # start mysql client
     docker-compose exec mysql mysql -u root -proot tasks
 
-    # show query log
+    # show mysql query log
     docker-compose exec mysql sh -c "tail -f /tmp/mysql.log"
 
     # start memcache client
@@ -70,6 +70,7 @@ PHP Example Tasks REST API
 
     http://127.0.0.1:8080/docs/ (SwaggerUI)
     http://127.0.0.1:8080/coverage/ (code coverage)
+    http://127.0.0.1:8025/ (MailHog UI, catch all outgoing emails)
 
 #### Command line tests
 

@@ -12,10 +12,20 @@ if (php_sapi_name() != 'cli') {
 require __DIR__ . '/../vendor/autoload.php';
 
 $app = new App([], [], $_SERVER, []);
+$router = $app->getRouter();
 
-$customer = new Customer();
-$customer->id = 42;
+$router->any('(\d+) (\S+)', function (int $customerId, string $email) use ($app): void {
+    $customer = new Customer();
+    $customer->id = $customerId;
+    $customer->email = $email;
 
-$token = $app->getAuthentication()->getToken($customer, $app->getConfig()->privateKey);
+    $token = $app->getAuthentication()->getToken($customer, $app->getConfig()->privateKey);
 
-echo 'export TOKEN="' . $token . '"' . PHP_EOL;
+    echo 'export TOKEN="' . $token . '"' . PHP_EOL;
+});
+
+$router->any('.*', function (): void {
+    echo 'Usage: generate_token.php customer-id customer-email' . PHP_EOL;
+});
+
+$router->match('', $app->getHeader('DOCUMENT_URI'));

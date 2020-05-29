@@ -50,6 +50,14 @@ services:
     networks:
       - backend
     restart: unless-stopped
+  mailhog:
+    image: mailhog/mailhog
+    cap_drop: [all]
+    ports:
+      - 1025:1025
+      - 8025:8025
+    networks:
+      - backend
 
 networks:
   backend:

@@ -1,13 +1,13 @@
 <?php
 
-namespace TaskService\Tests\Feature\Controllers;
+namespace TaskService\Tests\Feature\Tasks;
 
 use PHPUnit\Framework\TestCase;
 use TaskService\Config\Config;
 use TaskService\Framework\Authentication;
 use TaskService\Models\Customer;
 
-class TasksControllerTest extends TestCase
+class TasksTest extends TestCase
 {
     protected $baseUrl = 'http://nginx:8080/';
 
@@ -22,6 +22,7 @@ class TasksControllerTest extends TestCase
 
         $this->customer = new Customer();
         $this->customer->id = 42;
+        $this->customer->email = 'foo.bar@example.com';
 
         $this->authorization = $authentication->getToken($this->customer, $config->privateKey);
     }

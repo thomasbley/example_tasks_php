@@ -6,4 +6,7 @@ class Customer
 {
     /** @var int */
     public $id;
+
+    /** @var string */
+    public $email;
 }

@@ -23,12 +23,13 @@ class Authentication
 
         $payload = json_decode($this->urlBase64Decode($payload), true, 10);
 
-        if (empty($payload['exp']) || $payload['exp'] < time() || empty($payload['sub'])) {
+        if (empty($payload['exp']) || $payload['exp'] < time() || empty($payload['sub']) || empty($payload['email'])) {
             return null;
         }
 
         $customer = new Customer();
         $customer->id = (int) $payload['sub'];
+        $customer->email = $payload['email'];
 
         return $customer;
     }
@@ -40,6 +41,7 @@ class Authentication
         $payload = [
             'exp' => strtotime('+1 day'),
             'sub' => (string) $customer->id,
+            'email' => $customer->email,
         ];
         $data = $this->urlBase64Encode(json_encode($header)) . '.' . $this->urlBase64Encode(json_encode($payload));
 
