@@ -7,6 +7,7 @@ use TaskService\Exceptions\HttpException;
 use TaskService\Framework\App;
 use TaskService\Models\Customer;
 use TaskService\Models\Task;
+use TaskService\Views\TaskCompletedEmail;
 
 class TasksController
 {
@@ -47,6 +48,14 @@ class TasksController
         }
 
         $repo->updateTask($task);
+
+        if ($task->completed) {
+            $email = new TaskCompletedEmail();
+            $email->customer = $customer;
+            $email->task = $task;
+
+            $this->app->getEmailService()->sendEmail($email);
+        }
     }
 
     public function deleteTask(Customer $customer, int $taskId): void
