@@ -5,6 +5,9 @@ PHP Example Tasks REST API
 
 [![Travis Build Status](https://travis-ci.com/thomasbley/example_tasks_php.svg?branch=master)](https://travis-ci.com/thomasbley/example_tasks_php)
 
+As a registered user, I want to see a list of open tasks for my day, so that I can do them one by one and get notified
+on completion.
+
 #### Setup
 
     # setup composer
