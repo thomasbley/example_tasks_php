@@ -27,7 +27,6 @@ class EmailServiceTest extends TestCase
         $this->task = new Task();
         $this->task->id = 41;
         $this->task->title = 'test';
-
     }
 
     public function testSendEmail(): void
