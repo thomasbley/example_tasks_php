@@ -5,12 +5,12 @@
     "config": {
         "secure-http": true,
         "platform": {
-            "php": "7.3"
+            "php": "7.4"
         },
         "vendor-dir": "app/vendor"
     },
     "require": {
-        "php": ">=7.3"
+        "php": ">=7.4"
     },
     "autoload": {
         "psr-4": { "TaskService\\": "app/" }
