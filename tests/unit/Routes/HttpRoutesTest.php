@@ -17,7 +17,7 @@ use TaskService\Serializer\TasksSerializer;
 class HttpRoutesTest extends TestCase
 {
     protected $app;
-    protected $customer;
+    protected Customer $customer;
 
     protected function setUp(): void
     {
@@ -132,6 +132,7 @@ class HttpRoutesTest extends TestCase
     public function testCreateTask(): void
     {
         $task = new Task();
+        $task->id = 42;
 
         $this->app->method('getHeader')
             ->willReturnMap($this->getHeaders('POST', '/v1/tasks'));

@@ -13,8 +13,8 @@ use TaskService\Views\TaskCompletedEmail;
 
 class EmailServiceTest extends TestCase
 {
-    protected $customer;
-    protected $task;
+    protected Customer $customer;
+    protected Task $task;
 
     public function setUp(): void
     {
@@ -25,7 +25,9 @@ class EmailServiceTest extends TestCase
         $this->customer->email = 'foo.receiver@example.com';
 
         $this->task = new Task();
+        $this->task->id = 41;
         $this->task->title = 'test';
+
     }
 
     public function testSendEmail(): void

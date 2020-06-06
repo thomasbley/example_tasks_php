@@ -9,7 +9,7 @@ use TaskService\Models\Task;
 
 class TasksRepository
 {
-    protected $app;
+    protected App $app;
 
     public function __construct(App $app)
     {

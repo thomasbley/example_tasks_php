@@ -8,7 +8,7 @@ use TaskService\Models\Task;
 
 class HttpRoutes
 {
-    protected $app;
+    protected App $app;
 
     public function __construct(App $app)
     {

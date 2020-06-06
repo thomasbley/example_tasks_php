@@ -9,5 +9,5 @@ function header(string $header): void
 
 abstract class OutputMocks
 {
-    public static $header = [];
+    public static array $header = [];
 }

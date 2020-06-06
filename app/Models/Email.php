@@ -4,15 +4,11 @@ namespace TaskService\Models;
 
 class Email
 {
-    /** @var string */
-    public $template;
+    public string $template;
 
-    /** @var string */
-    public $subject;
+    public string $subject;
 
-    /** @var string */
-    public $from;
+    public string $from;
 
-    /** @var Customer */
-    public $customer;
+    public Customer $customer;
 }

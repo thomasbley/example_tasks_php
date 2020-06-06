@@ -16,7 +16,7 @@ class TasksControllerTest extends TestCase
 {
     protected $app;
 
-    protected $customer;
+    protected Customer $customer;
 
     protected function setUp(): void
     {
@@ -209,6 +209,7 @@ class TasksControllerTest extends TestCase
 
         $task = new Task();
         $task->title = 'test';
+        $task->duedate = '';
 
         $this->app->getTasksRepository()->expects($this->never())
             ->method('updateTask')

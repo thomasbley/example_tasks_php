@@ -8,9 +8,9 @@ use TaskService\Models\Customer;
 
 class TasksRepositoryTest extends TestCase
 {
-    protected $app;
-    protected $customer;
-    protected $customer2;
+    protected App $app;
+    protected Customer $customer;
+    protected Customer $customer2;
 
     public function setUp(): void
     {
@@ -50,7 +50,6 @@ class TasksRepositoryTest extends TestCase
         $repo = $this->app->getTasksRepository();
 
         $actual = $repo->createTask($this->customer, 'test', '2020-05-22');
-        $this->assertNotEmpty($actual);
 
         $this->assertTrue($repo->taskExists($this->customer, $actual->id));
         $this->assertFalse($repo->taskExists($this->customer2, $actual->id));
@@ -90,7 +89,6 @@ class TasksRepositoryTest extends TestCase
         $repo = $this->app->getTasksRepository();
 
         $actual = $repo->createTask($this->customer, 'test', '2020-05-22');
-        $this->assertNotEmpty($actual);
 
         $this->assertTrue($repo->taskExists($this->customer, $actual->id));
 
@@ -104,7 +102,6 @@ class TasksRepositoryTest extends TestCase
         $repo = $this->app->getTasksRepository();
 
         $actual = $repo->createTask($this->customer, 'test', '2020-05-22');
-        $this->assertNotEmpty($actual);
 
         $this->assertTrue($actual == $repo->getTask($this->customer, $actual->id));
 

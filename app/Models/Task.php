@@ -4,15 +4,11 @@ namespace TaskService\Models;
 
 class Task
 {
-    /** @var int */
-    public $id;
+    public int $id;
 
-    /** @var string */
-    public $title;
+    public string $title;
 
-    /** @var string */
-    public $duedate;
+    public string $duedate;
 
-    /** @var bool */
-    public $completed;
+    public bool $completed;
 }

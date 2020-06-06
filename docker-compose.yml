@@ -2,8 +2,8 @@ version: "2"
 
 services:
   php:
-    build: ./docker/php73
-    image: example_php
+    build: ./docker/php74
+    image: example_tasks_php
     cap_drop: [all]
     cap_add: [chown, setgid, setuid, kill]
     volumes:

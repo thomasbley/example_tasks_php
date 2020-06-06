@@ -53,12 +53,17 @@ class AuthenticationTest extends TestCase
 
         $this->assertNotEmpty($actual);
         $this->assertSame(42, $actual->id);
+        $this->assertSame('foo.bar@example.com', $actual->email);
     }
 
     public function testGetCustomerInvalidToken(): void
     {
         $config = new Config();
+
         $customer = new Customer();
+        $customer->id = 0;
+        $customer->email = 'foo.bar@example.com';
+
         $authentication = new Authentication();
 
         $actual = $authentication->getCustomer('foo', $config->publicKey);
@@ -79,6 +84,9 @@ class AuthenticationTest extends TestCase
         $this->expectExceptionMessage('signing failed');
 
         $customer = new Customer();
+        $customer->id = 42;
+        $customer->email = 'foo.bar@example.com';
+
         $authentication = new Authentication();
 
         @$authentication->getToken($customer, '');

@@ -11,7 +11,7 @@ use TaskService\Repositories\MigrationsRepository;
 
 class MigrationsRepositoryTest extends TestCase
 {
-    protected $app;
+    protected App $app;
 
     public function setUp(): void
     {

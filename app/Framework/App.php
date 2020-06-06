@@ -14,11 +14,11 @@ use TaskService\Services\EmailService;
 
 class App
 {
-    protected $get;
-    protected $post;
-    protected $server;
-    protected $input;
-    protected $container = [];
+    protected array $get;
+    protected array $post;
+    protected array $server;
+    protected array $input;
+    protected array $container = [];
 
     /**
      * @param array|string $input

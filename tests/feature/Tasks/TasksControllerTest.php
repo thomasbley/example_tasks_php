@@ -9,11 +9,11 @@ use TaskService\Models\Customer;
 
 class TasksTest extends TestCase
 {
-    protected $baseUrl = 'http://nginx:8080/';
+    protected string $baseUrl = 'http://nginx:8080/';
 
-    protected $authorization;
+    protected string $authorization;
 
-    protected $customer;
+    protected Customer $customer;
 
     public function setUp(): void
     {

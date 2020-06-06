@@ -4,9 +4,7 @@ namespace TaskService\Models;
 
 class Customer
 {
-    /** @var int */
-    public $id;
+    public int $id;
 
-    /** @var string */
-    public $email;
+    public string $email;
 }

@@ -14,7 +14,7 @@ function mail(...$params): bool
 
 abstract class ServicesMocks
 {
-    public static $mailReturn = true;
+    public static bool $mailReturn = true;
 
-    public static $mailParams = [];
+    public static array $mailParams = [];
 }

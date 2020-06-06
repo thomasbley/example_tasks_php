@@ -7,14 +7,14 @@ namespace TaskService\Config;
  */
 class Config
 {
-    public $dbHost = 'mysql';
-    public $dbUsername = 'root';
-    public $dbPassword = 'root';
-    public $dbDatabase = 'tasks';
+    public string $dbHost = 'mysql';
+    public string $dbUsername = 'root';
+    public string $dbPassword = 'root';
+    public string $dbDatabase = 'tasks';
 
-    public $cacheHosts = ['memcache'];
+    public array $cacheHosts = ['memcache'];
 
-    public $publicKey = '-----BEGIN PUBLIC KEY-----
+    public string $publicKey = '-----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAoCOg744fgP2MAf8BcoHg
 11Ldd9YlAOT14qvFvtlyxXdR57SYwVkkfZCPvJ9ctj1wa9xUmF+/ClPJYFb5Juzj
 CiITU+xXhC9ONXnKH2ve1UF48fCi8K01JkvDrsZOuxrAVDpzhBF1Cq1iHhOD3bw+
@@ -30,7 +30,7 @@ ozcwKcBR88PnfjyPyCC5chcCAwEAAQ==
 -----END PUBLIC KEY-----';
 
     // example private key only for local usage
-    public $privateKey = '-----BEGIN RSA PRIVATE KEY-----
+    public string $privateKey = '-----BEGIN RSA PRIVATE KEY-----
 MIIJKQIBAAKCAgEAoCOg744fgP2MAf8BcoHg11Ldd9YlAOT14qvFvtlyxXdR57SY
 wVkkfZCPvJ9ctj1wa9xUmF+/ClPJYFb5JuzjCiITU+xXhC9ONXnKH2ve1UF48fCi
 8K01JkvDrsZOuxrAVDpzhBF1Cq1iHhOD3bw+uSjQlqOzXMIOBAUBnOSOpuNYPcmu

@@ -8,11 +8,9 @@ use TaskService\Models\Task;
 
 class TaskCompletedEmail extends Email
 {
-    public $template = __DIR__ . '/TaskCompletedEmailTemplate.php';
+    public string $template = __DIR__ . '/TaskCompletedEmailTemplate.php';
 
-    /** @var Customer */
-    public $customer;
+    public Customer $customer;
 
-    /** @var Task */
-    public $task;
+    public Task $task;
 }
