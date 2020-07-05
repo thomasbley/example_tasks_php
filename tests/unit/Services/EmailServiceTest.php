@@ -45,7 +45,7 @@ class EmailServiceTest extends TestCase
         $params = ServicesMocks::$mailParams;
 
         $this->assertStringContainsString($this->customer->email, $params[0]);
-        $this->assertSame($email->subject, $params[1]);
+        $this->assertSame('=?UTF-8?Q?Task #41 completed?=', $params[1]);
         $this->assertStringContainsString('Task <b>test</b> completed!', $params[2]);
         $this->assertSame($email->from, $params[3]['From']);
     }

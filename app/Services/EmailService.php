@@ -17,7 +17,9 @@ class EmailService
             'Content-Transfer-Encoding' => 'quoted-printable',
         ];
 
-        if (!mail($email->customer->email, $email->subject, quoted_printable_encode($content), $headers)) {
+        $subject = '=?UTF-8?Q?' . quoted_printable_encode($email->subject) . '?=';
+
+        if (!mail($email->customer->email, $subject, quoted_printable_encode($content), $headers)) {
             $message = sprintf('failed to send %s to customer-id %s', $email->template, $email->customer->id);
 
             trigger_error($message, E_USER_WARNING);
