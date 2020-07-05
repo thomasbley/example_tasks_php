@@ -2,7 +2,7 @@ version: "2"
 
 services:
   php:
-    build: ./docker/php74-official
+    build: ./docker/php74-alpine
     image: example_tasks_php
     cap_drop: [all]
     cap_add: [chown, setgid, setuid, kill]
