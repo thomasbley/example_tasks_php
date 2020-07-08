@@ -17,7 +17,7 @@ COPY ./php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
 
 
 # use multi-stage to reduce container size from 82M to 45M
-FROM alpine:3.11
+FROM alpine:3.12
 
 RUN mkdir -m 0777 /var/coverage
 
