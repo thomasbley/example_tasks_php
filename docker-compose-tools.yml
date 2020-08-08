@@ -17,7 +17,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: composer-1108.phar
+    entrypoint: composer-11010.phar
     command: install --no-cache -o --ignore-platform-reqs
     volumes:
       - ./:/var/www
@@ -54,7 +54,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: psalm-3122.phar --no-cache
+    entrypoint: psalm-3131.phar --no-cache
     volumes:
       - ./:/var/www
       - ./bin:/usr/local/sbin
@@ -62,7 +62,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: psalm-3122.phar --no-cache --taint-analysis
+    entrypoint: psalm-3131.phar --no-cache --taint-analysis
     volumes:
       - ./:/var/www
       - ./bin:/usr/local/sbin
@@ -78,7 +78,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: php -dextension=pcov.so /usr/local/sbin/phpunit-925.phar -c phpunit.xml --coverage-text --coverage-html=/var/coverage
+    entrypoint: php -dextension=pcov.so /usr/local/sbin/phpunit-933.phar -c phpunit.xml --coverage-text --coverage-html=/var/coverage
     volumes:
       - coverage-data:/var/coverage
       - ./:/var/www
