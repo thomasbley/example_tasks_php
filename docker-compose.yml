@@ -30,8 +30,6 @@ services:
     image: mysql:5.7
     cap_drop: [all]
     cap_add: [chown, setuid, setgid, dac_override]
-    ports:
-      - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
       - ./docker/mysql/mysql.conf:/etc/mysql/conf.d/mysql.cnf
@@ -45,8 +43,6 @@ services:
     image: memcached:alpine
     cap_drop: [all]
     command: '-m 128 -v'
-    ports:
-      - 11211:11211
     networks:
       - backend
     restart: unless-stopped
@@ -54,7 +50,6 @@ services:
     image: mailhog/mailhog
     cap_drop: [all]
     ports:
-      - 1025:1025
       - 8025:8025
     networks:
       - backend
