@@ -2,5 +2,6 @@
 !.github
 !.gitignore
 !.travis.yml
+docker-compose.override.yml
 app/vendor/
 tests/coverage/
