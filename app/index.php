@@ -1,7 +1,10 @@
 <?php
 
+namespace TaskService;
+
 use TaskService\Exceptions\HttpException;
 use TaskService\Framework\App;
+use Throwable;
 
 error_reporting(E_ALL);
 
