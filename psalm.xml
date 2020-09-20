@@ -19,7 +19,6 @@
 
     <issueHandlers>
         <PropertyNotSetInConstructor errorLevel="suppress" />
-        <MissingPropertyType errorLevel="suppress" />
         <InternalMethod errorLevel="suppress" />
         
         <UnusedClass errorLevel="info">

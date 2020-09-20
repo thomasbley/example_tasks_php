@@ -14,6 +14,7 @@ use TaskService\Views\TaskCompletedEmail;
 
 class TasksControllerTest extends TestCase
 {
+    /** @var mixed */
     protected $app;
 
     protected Customer $customer;

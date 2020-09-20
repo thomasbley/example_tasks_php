@@ -8,6 +8,7 @@ use TaskService\Framework\Router;
 
 class RouterTest extends TestCase
 {
+    /** @var mixed */
     protected $mock;
 
     protected function setUp(): void

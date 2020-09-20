@@ -16,7 +16,9 @@ use TaskService\Serializer\TasksSerializer;
 
 class HttpRoutesTest extends TestCase
 {
+    /** @var mixed */
     protected $app;
+
     protected Customer $customer;
 
     protected function setUp(): void
