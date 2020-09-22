@@ -4,7 +4,7 @@ services:
   shell:
     image: example_tasks_php
     cap_drop: [all]
-    working_dir: /var/www/app/shell
+    working_dir: /var/www/app
     entrypoint: php
     volumes:
       - ./:/var/www
@@ -18,7 +18,16 @@ services:
     cap_drop: [all]
     working_dir: /var/www
     entrypoint: composer-11010.phar
-    command: install --no-cache -o --ignore-platform-reqs
+    command: install --no-cache --no-progress -o --ignore-platform-reqs
+    volumes:
+      - ./:/var/www
+      - ./bin:/usr/local/sbin
+  composer_validate:
+    image: example_tasks_php
+    cap_drop: [all]
+    working_dir: /var/www
+    entrypoint: composer-11010.phar
+    command: validate --no-cache
     volumes:
       - ./:/var/www
       - ./bin:/usr/local/sbin
