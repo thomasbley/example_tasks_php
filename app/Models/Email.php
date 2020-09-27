@@ -10,5 +10,5 @@ class Email
 
     public string $from;
 
-    public Customer $customer;
+    public string $to;
 }

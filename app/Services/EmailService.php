@@ -19,8 +19,8 @@ class EmailService
 
         $subject = '=?UTF-8?Q?' . quoted_printable_encode($email->subject) . '?=';
 
-        if (!mail($email->customer->email, $subject, quoted_printable_encode($content), $headers)) {
-            $message = sprintf('failed to send %s to customer-id %s', $email->template, $email->customer->id);
+        if (!mail($email->to, $subject, quoted_printable_encode($content), $headers)) {
+            $message = sprintf('failed to send %s to %s', $email->template, $email->to);
 
             trigger_error($message, E_USER_WARNING);
         }
