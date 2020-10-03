@@ -111,7 +111,7 @@ services:
     image: kminami/apib2swagger
     cap_drop: [all]
     working_dir: /docs
-    command: -i api.md --prefer-reference --bearer-apikey -o swaggerui/swagger.json
+    command: -i api.md --prefer-reference --bearer-apikey -o swaggerui/api_spec.json
     volumes:
       - ./docs:/docs
 

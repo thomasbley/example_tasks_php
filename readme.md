@@ -64,7 +64,7 @@ on completion.
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm fpm_status
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm memcache_status
 
-#### Convert docs/api.md to docs/swaggerui/swagger.json
+#### Convert docs/api.md to docs/swaggerui/api_spec.json
 
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm apib2swagger
 
