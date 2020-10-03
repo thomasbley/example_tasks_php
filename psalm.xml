@@ -8,6 +8,7 @@
     ignoreInternalFunctionFalseReturn="true"
     findUnusedCode="true"
     totallyTyped="false"
+    cacheDirectory="/tmp/psalm"
 >
     <projectFiles>
         <directory name="app/" />
