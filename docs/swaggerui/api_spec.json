@@ -149,21 +149,23 @@
                 ],
                 "parameters": [
                     {
-                        "name": "title",
+                        "name": "body",
                         "in": "body",
-                        "description": "",
-                        "required": true,
                         "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "duedate",
-                        "in": "body",
-                        "description": "date, YYYY-mm-dd",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
+                            "type": "object",
+                            "required": [
+                                "title",
+                                "duedate"
+                            ],
+                            "properties": {
+                                "title": {
+                                    "type": "string"
+                                },
+                                "duedate": {
+                                    "type": "string",
+                                    "description": "date, YYYY-mm-dd"
+                                }
+                            }
                         }
                     }
                 ],
@@ -311,30 +313,27 @@
                         "type": "number"
                     },
                     {
-                        "name": "title",
+                        "name": "body",
                         "in": "body",
-                        "description": "",
-                        "required": true,
                         "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "duedate",
-                        "in": "body",
-                        "description": "date, YYYY-mm-dd",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "completed",
-                        "in": "body",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "type": "boolean"
+                            "type": "object",
+                            "required": [
+                                "title",
+                                "duedate",
+                                "completed"
+                            ],
+                            "properties": {
+                                "title": {
+                                    "type": "string"
+                                },
+                                "duedate": {
+                                    "type": "string",
+                                    "description": "date, YYYY-mm-dd"
+                                },
+                                "completed": {
+                                    "type": "boolean"
+                                }
+                            }
                         }
                     }
                 ],

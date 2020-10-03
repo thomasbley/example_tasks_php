@@ -52,7 +52,7 @@ Get single task
 
 Create a task
 
-+ Parameters
++ Attributes
     + title (string, required)
     + duedate (string, required) - date, YYYY-mm-dd
 
@@ -80,6 +80,8 @@ Updates a task
 
 + Parameters
     + taskId (number)
+
++ Attributes
     + title (string, required)
     + duedate (string, required) - date, YYYY-mm-dd
     + completed (boolean, required)
