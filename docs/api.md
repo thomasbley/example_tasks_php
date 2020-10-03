@@ -28,7 +28,7 @@ Get current or completed tasks
     + Attributes (InternalServerError)
 
 
-## GET /v1/tasks{taskId}
+## GET /v1/tasks/{taskId}
 
 Get single task
 
@@ -74,11 +74,12 @@ Create a task
     + Attributes (InternalServerError)
 
 
-## PUT /v1/tasks
+## PUT /v1/tasks/{taskId}
 
 Updates a task
 
 + Parameters
+    + taskId (number)
     + title (string, required)
     + duedate (string, required) - date, YYYY-mm-dd
     + completed (boolean, required)

@@ -175,107 +175,9 @@
                         "bearer": []
                     }
                 ]
-            },
-            "put": {
-                "responses": {
-                    "204": {
-                        "description": "No Content",
-                        "headers": {},
-                        "examples": {}
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "headers": {},
-                        "examples": {
-                            "application/json": {
-                                "error": "missing title"
-                            }
-                        },
-                        "schema": {
-                            "type": "object",
-                            "required": [
-                                "error"
-                            ],
-                            "properties": {
-                                "error": {
-                                    "type": "string",
-                                    "enum": [
-                                        "missing title",
-                                        "invalid duedate"
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "headers": {},
-                        "examples": {}
-                    },
-                    "404": {
-                        "description": "Not Found",
-                        "headers": {},
-                        "examples": {}
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "headers": {},
-                        "examples": {
-                            "application/json": {
-                                "error": "internal server error"
-                            }
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/InternalServerError"
-                        }
-                    }
-                },
-                "summary": "",
-                "operationId": "",
-                "description": "Updates a task",
-                "tags": [
-                    "Tasks"
-                ],
-                "parameters": [
-                    {
-                        "name": "title",
-                        "in": "body",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "duedate",
-                        "in": "body",
-                        "description": "date, YYYY-mm-dd",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "completed",
-                        "in": "body",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "type": "boolean"
-                        }
-                    }
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
             }
         },
-        "/v1/tasks{taskId}": {
+        "/v1/tasks/{taskId}": {
             "get": {
                 "responses": {
                     "200": {
@@ -340,6 +242,113 @@
                     }
                 ]
             },
+            "put": {
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "headers": {},
+                        "examples": {}
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "error": "missing title"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "error"
+                            ],
+                            "properties": {
+                                "error": {
+                                    "type": "string",
+                                    "enum": [
+                                        "missing title",
+                                        "invalid duedate"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "headers": {},
+                        "examples": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "headers": {},
+                        "examples": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "error": "internal server error"
+                            }
+                        },
+                        "schema": {
+                            "$ref": "#/definitions/InternalServerError"
+                        }
+                    }
+                },
+                "summary": "",
+                "operationId": "",
+                "description": "Updates a task",
+                "tags": [
+                    "Tasks"
+                ],
+                "parameters": [
+                    {
+                        "name": "taskId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "title",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "duedate",
+                        "in": "body",
+                        "description": "date, YYYY-mm-dd",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "completed",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/v1/tasks{taskId}": {
             "delete": {
                 "responses": {
                     "204": {
