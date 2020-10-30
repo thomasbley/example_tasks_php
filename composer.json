@@ -7,12 +7,17 @@
         "platform": {
             "php": "7.4"
         },
+        "preferred-install" : "dist",
         "vendor-dir": "app/vendor"
     },
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "ext-mbstring": "*",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": { "TaskService\\": "app/" }
-    }
+    },
+    "prefer-stable" : true
 }

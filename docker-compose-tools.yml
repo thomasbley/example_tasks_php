@@ -17,7 +17,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: composer-11013.phar
+    entrypoint: composer-203.phar
     command: install --no-cache --no-progress -o --ignore-platform-reqs
     volumes:
       - ./:/var/www
@@ -26,7 +26,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: composer-11013.phar
+    entrypoint: composer-203.phar
     command: validate --no-cache
     volumes:
       - ./:/var/www
@@ -63,7 +63,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: psalm-3160.phar --no-cache
+    entrypoint: psalm-410.phar --no-cache
     volumes:
       - ./:/var/www
       - ./bin:/usr/local/sbin
@@ -71,7 +71,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: psalm-3160.phar --no-cache --taint-analysis
+    entrypoint: psalm-410.phar --no-cache --taint-analysis
     volumes:
       - ./:/var/www
       - ./bin:/usr/local/sbin
@@ -79,7 +79,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: phpcsfixer-2164.phar fix --verbose --dry-run --diff --config phpcsfixer.conf
+    entrypoint: phpcsfixer-2167.phar fix --verbose --dry-run --diff --config phpcsfixer.conf
     volumes:
       - ./:/var/www
       - ./bin:/usr/local/sbin
@@ -87,7 +87,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: php -dmemory_limit=64M -dextension=pcov.so /usr/local/sbin/phpunit-940.phar -c phpunit.xml --coverage-text --coverage-html=/var/coverage
+    entrypoint: php -dmemory_limit=64M -dextension=pcov.so /usr/local/sbin/phpunit-942.phar -c phpunit.xml --coverage-text --coverage-html=/var/coverage
     volumes:
       - coverage-data:/var/coverage
       - ./:/var/www

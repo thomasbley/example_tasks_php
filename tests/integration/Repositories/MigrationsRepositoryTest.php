@@ -74,7 +74,7 @@ class MigrationsRepositoryTest extends TestCase
 
         $app->getDatabase()->expects($this->once())
             ->method('query')
-            ->willReturn(new PDOStatement());
+            ->willReturn($this->createMock(PDOStatement::class));
 
         $repo = new MigrationsRepository($app);
         $this->assertFalse($repo->isImported('imported.sql'));

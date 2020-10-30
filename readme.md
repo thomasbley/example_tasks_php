@@ -91,3 +91,17 @@ on completion.
     curl -i -X GET -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks?completed=1"
     curl -i -X GET -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks/1"
     curl -i -X DELETE -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks/1"
+
+Design principes
+
+    no full-stack framework (frameworkless), best performance, less complexity, more flexibility, less upgrading
+    use composer for auto-loading and libraries
+    use phar files for tools
+    avoid magic functions, enable auto-complete for everything in the IDE
+    use plain old (typed) php objects for models, less memory usage, better performance
+    skip static variables and methods, better testability
+    skip method parameter defaults, less complexity
+    superglobals are only used in bootstrap (index.php)
+    use minimized alpine containers whenever possible
+    code coverage >99%
+    SOLID, DRY, KISS, you build it you own it
