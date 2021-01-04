@@ -95,13 +95,14 @@ on completion.
 Design principes
 
     no full-stack framework (frameworkless), best performance, less complexity, more flexibility, less upgrading
+    no magic functions, no reflection, no annotations, no yaml configs, enable auto-complete for _everything_ in the IDE
+    minimum memory footprint, minimum amount of code
     use composer for auto-loading and libraries
-    use phar files for tools
-    avoid magic functions, enable auto-complete for everything in the IDE
     use plain old (typed) php objects for models, less memory usage, better performance
+    use phar files for tools
     skip static variables and methods, better testability
     skip method parameter defaults, less complexity
     superglobals are only used in bootstrap (index.php)
     use minimized alpine containers whenever possible
-    code coverage >99%
+    test code coverage >99%
     SOLID, DRY, KISS, you build it you own it
