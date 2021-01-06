@@ -2,6 +2,7 @@
 
 namespace TaskService\Tests\Unit\Routes;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use TaskService\Controllers\TasksController;
 use TaskService\Exceptions\HttpException;
@@ -17,7 +18,7 @@ use TaskService\Serializer\TasksSerializer;
 class HttpRoutesTest extends TestCase
 {
     /** @var mixed */
-    protected $app;
+    protected MockObject $app;
 
     protected Customer $customer;
 
@@ -172,7 +173,7 @@ class HttpRoutesTest extends TestCase
             ->willReturnMap($this->getHeaders('PUT', '/v1/tasks/123'));
 
         $this->app->method('getParam')
-            ->willReturnMap([['title', $task->title], ['duedate', $task->duedate], ['completed', $task->completed]]);
+            ->willReturnMap([['title', $task->title], ['duedate', $task->duedate], ['completed', (string) $task->completed]]);
 
         $this->app->getTasksController()->expects($this->once())
             ->method('updateTask')

@@ -13,11 +13,19 @@ class Output
             header('Location: ' . $location);
         }
 
-        echo json_encode($data);
+        echo $this->escape($data);
     }
 
     public function noContent(): void
     {
         http_response_code(204);
+    }
+
+    /**
+     * @psalm-taint-escape html
+     */
+    protected function escape(array $value): string
+    {
+        return json_encode($value);
     }
 }

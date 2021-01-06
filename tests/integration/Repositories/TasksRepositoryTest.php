@@ -40,9 +40,6 @@ class TasksRepositoryTest extends TestCase
         ';
         $statement = $this->app->getDatabase()->prepare($query);
         $statement->execute([$actual->id, $this->customer->id]);
-
-        // TODO improve
-        $this->assertNotEmpty($statement->fetchColumn());
     }
 
     public function testTaskExists(): void

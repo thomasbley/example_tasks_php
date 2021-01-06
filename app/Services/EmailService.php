@@ -31,10 +31,6 @@ class EmailService
         return htmlspecialchars($value, ENT_QUOTES | ENT_HTML5);
     }
 
-    /**
-     * @psalm-suppress PossiblyUnusedParam
-     * @psalm-suppress UnresolvableInclude
-     */
     protected function renderTemplate(Email $email): string
     {
         if (empty($email->template)) {
@@ -43,6 +39,7 @@ class EmailService
 
         ob_start();
 
+        /** @psalm-suppress UnresolvableInclude */
         require $email->template;
 
         return trim(ob_get_clean());

@@ -2,6 +2,7 @@
 
 namespace TaskService\Tests\Unit\Controllers;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use TaskService\Controllers\TasksController;
 use TaskService\Exceptions\HttpException;
@@ -15,7 +16,7 @@ use TaskService\Views\TaskCompletedEmail;
 class TasksControllerTest extends TestCase
 {
     /** @var mixed */
-    protected $app;
+    protected MockObject $app;
 
     protected Customer $customer;
 

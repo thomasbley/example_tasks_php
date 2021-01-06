@@ -20,10 +20,7 @@ class App
     protected array $input;
     protected array $container = [];
 
-    /**
-     * @param array|string $input
-     */
-    public function __construct(array $get, array $post, array $server, $input)
+    public function __construct(array $get, array $post, array $server, array | string $input)
     {
         // trim request data
         $this->get = filter_var($get, FILTER_CALLBACK, ['options' => 'trim']);
@@ -41,12 +38,9 @@ class App
         $this->input = filter_var($input, FILTER_CALLBACK, ['options' => 'trim']);
     }
 
-    /**
-     * @return mixed
-     */
-    public function getParam(string $key)
+    public function getParam(string $key): string
     {
-        return $this->input[$key] ?? $this->post[$key] ?? $this->get[$key] ?? '';
+        return (string) ($this->input[$key] ?? $this->post[$key] ?? $this->get[$key] ?? '');
     }
 
     public function getHeader(string $key): string

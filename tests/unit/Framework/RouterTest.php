@@ -2,6 +2,7 @@
 
 namespace TaskService\Tests\Unit\Framework;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use TaskService\Framework\Router;
@@ -9,7 +10,7 @@ use TaskService\Framework\Router;
 class RouterTest extends TestCase
 {
     /** @var mixed */
-    protected $mock;
+    protected MockObject $mock;
 
     protected function setUp(): void
     {

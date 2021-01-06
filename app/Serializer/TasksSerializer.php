@@ -23,10 +23,10 @@ class TasksSerializer
     public function serializeTask(Task $task): array
     {
         return [
-            'id' => (int) $task->id,
+            'id' => $task->id,
             'title' => $task->title,
             'duedate' => $task->duedate,
-            'completed' => (bool) $task->completed,
+            'completed' => $task->completed,
         ];
     }
 }
