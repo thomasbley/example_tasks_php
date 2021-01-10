@@ -1,0 +1,54 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "phpcsfixer",
+            "type": "shell",
+            "command": "bin/phpcsfixer-2173.phar fix --verbose --dry-run --diff --config phpcsfixer.conf",
+            "presentation": {
+                "showReuseMessage": false,
+                "echo": false
+            }
+        },
+        {
+            "label": "psalm",
+            "type": "shell",
+            "command": "bin/psalm-431.phar --no-cache",
+            "presentation": {
+                "showReuseMessage": false,
+                "echo": false
+            }
+        },
+        {
+            "label": "psalm_taint",
+            "type": "shell",
+            "command": "bin/psalm-431.phar --no-cache --taint-analysis",
+            "presentation": {
+                "showReuseMessage": false,
+                "echo": false
+            }
+        },
+        {
+            "label": "phpunit",
+            "type": "shell",
+            "command": "bin/phpunit-950.phar",
+            "presentation": {
+                "showReuseMessage": false,
+                "echo": false
+            }
+        },
+        {
+            "label": "Tests",
+            "group": "test",
+            "dependsOn": [
+                "phpcsfixer",
+                "psalm",
+                "psalm_taint",
+                "phpunit"
+            ],
+            "dependsOrder": "sequence"
+        }
+    ]
+}
