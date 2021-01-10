@@ -1,4 +1,4 @@
-version: "2"
+version: "2.1"
 
 services:
   php:
@@ -18,7 +18,7 @@ services:
     cap_drop: [all]
     cap_add: [chown, setuid, setgid, dac_override, net_bind_service]
     ports:
-      - 8080:8080
+      - "127.0.0.1:8080:8080"
     volumes:
       - coverage-data:/var/www/coverage
       - ./docs/swaggerui:/var/www/docs
@@ -50,7 +50,21 @@ services:
     image: mailhog/mailhog
     cap_drop: [all]
     ports:
-      - 8025:8025
+      - "127.0.0.1:8025:8025"
+    networks:
+      - backend
+  vscode:
+    build:
+      context: ./docker/vscode
+      args:
+      - UID
+    cap_drop: [all]
+    userns_mode: "host"
+    volumes:
+      - ./:/var/www
+      - ./docker/vscode/settings.json:/config/.local/share/code-server/User/settings.json
+    ports:
+      - "127.0.0.1:8000:8000"
     networks:
       - backend
 

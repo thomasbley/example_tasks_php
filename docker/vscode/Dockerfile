@@ -1,0 +1,35 @@
+FROM debian:buster-slim
+
+RUN apt-get -y update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install apt-transport-https curl ca-certificates \
+    && echo "deb https://packages.sury.org/php/ buster main" >/etc/apt/sources.list.d/ondrej-debian-php.list \
+    && curl -s https://packages.sury.org/php/apt.gpg >/etc/apt/trusted.gpg.d/php.gpg \
+    && apt-get -y update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install php7.4-cli \
+    && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.8.0/code-server_3.8.0_amd64.deb \
+    && dpkg -i /tmp/code-server.deb \
+    && apt-get upgrade -y \
+    && apt-get clean \
+    && rm -rf /tmp/* /var/lib/apt/lists/* /var/cache/apt/archives/*
+
+ARG UID
+RUN useradd -m docker -u ${UID} -d /config -s /bin/bash
+
+USER docker
+
+RUN code-server --install-extension bmewburn.vscode-intelephense-client \
+                --install-extension fterrag.vscode-php-cs-fixer \
+                --install-extension alphabotsec.vscode-eclipse-keybindings \
+    && chmod -R a+w /config
+
+WORKDIR /var/www
+
+EXPOSE 8000
+
+CMD [ \
+    "code-server", \
+    "--auth", "none", \
+    "--disable-telemetry", \
+    "--disable-update-check", \
+    "--bind-addr", "0.0.0.0:8000" \
+]

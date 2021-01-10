@@ -1,0 +1,14 @@
+{
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "workbench.colorTheme": "Default Dark+",
+    "editor.minimap.enabled": false,
+    "extensions.autoUpdate": false,
+    "php.suggest.basic": false,
+    "git.enabled": false,
+    "vscode-php-cs-fixer.toolPath": "/var/www/bin/phpcsfixer-2173.phar",
+    "vscode-php-cs-fixer.config": "/var/www/phpcsfixer.conf",
+    "vscode-php-cs-fixer.fixOnSave": false,
+    "[php]": { "editor.defaultFormatter": "fterrag.vscode-php-cs-fixer" },
+    "intelephense.format.enable": false,
+    "intelephense.telemetry.enabled": false,
+}

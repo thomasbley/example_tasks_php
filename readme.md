@@ -14,6 +14,9 @@ on completion.
     mkdir -m 0777 app/vendor
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer
 
+    # build vscode
+    docker-compose build --build-arg UID=$(id -u) vscode
+
     # start containers
     docker-compose up
     docker-compose up -d
