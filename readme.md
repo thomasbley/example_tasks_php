@@ -73,6 +73,8 @@ on completion.
 
 #### URLs
 
+    http://127.0.0.1:8000/?folder=/var/www (VS-Code IDE)
+
     http://127.0.0.1:8080/v1/tasks (API endpoint)
 
     http://127.0.0.1:8080/docs/ (SwaggerUI)

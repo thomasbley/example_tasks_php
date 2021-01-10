@@ -5,7 +5,12 @@ RUN apt-get -y update \
     && echo "deb https://packages.sury.org/php/ buster main" >/etc/apt/sources.list.d/ondrej-debian-php.list \
     && curl -s https://packages.sury.org/php/apt.gpg >/etc/apt/trusted.gpg.d/php.gpg \
     && apt-get -y update \
-    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install php7.4-cli \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install php8.0-cli \
+        php8.0-mysql \
+        php8.0-mbstring \
+        php8.0-curl \
+        php8.0-xml \
+        php8.0-memcache \
     && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.8.0/code-server_3.8.0_amd64.deb \
     && dpkg -i /tmp/code-server.deb \
     && apt-get upgrade -y \
