@@ -63,6 +63,8 @@ services:
     volumes:
       - ./:/var/www
       - ./docker/vscode/settings.json:/config/.local/share/code-server/User/settings.json
+      - ./docker/vscode/tasks.json:/config/.local/share/code-server/User/tasks.json
+      - ./docker/vscode/keybindings.json:/config/.local/share/code-server/User/keybindings.json
     ports:
       - "127.0.0.1:8000:8000"
     networks:

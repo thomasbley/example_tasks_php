@@ -2,6 +2,7 @@
     "terminal.integrated.shell.linux": "/bin/bash",
     "workbench.colorTheme": "Default Dark+",
     "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
     "extensions.autoUpdate": false,
     "php.suggest.basic": false,
     "git.enabled": false,
@@ -10,5 +11,5 @@
     "vscode-php-cs-fixer.fixOnSave": false,
     "[php]": { "editor.defaultFormatter": "fterrag.vscode-php-cs-fixer" },
     "intelephense.format.enable": false,
-    "intelephense.telemetry.enabled": false,
+    "intelephense.telemetry.enabled": false
 }

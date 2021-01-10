@@ -29,6 +29,8 @@ RUN code-server --install-extension bmewburn.vscode-intelephense-client \
 
 WORKDIR /var/www
 
+ENV PHP_CS_FIXER_IGNORE_ENV=1
+
 EXPOSE 8000
 
 CMD [ \

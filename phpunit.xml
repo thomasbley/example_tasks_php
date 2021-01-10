@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="./app/vendor/autoload.php" cacheResult="false" verbose="true" colors="true" testdox="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         bootstrap="./app/vendor/autoload.php"
+         cacheResult="false"
+         verbose="true"
+         colors="true"
+>
   <coverage>
     <include>
       <directory suffix=".php">./app</directory>
