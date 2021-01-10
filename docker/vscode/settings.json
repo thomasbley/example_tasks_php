@@ -2,6 +2,15 @@
     "terminal.integrated.shell.linux": "/bin/bash",
     "workbench.colorTheme": "Default Dark+",
     "editor.minimap.enabled": false,
+    "editor.renderIndentGuides": false,
+    "editor.folding": false,
+    "editor.renderLineHighlight": "line",
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#37373d"
+    },
+    "workbench.editor.enablePreview": false,
+    "workbench.startupEditor": "none",
+    "explorer.openEditors.visible": 0,
     "breadcrumbs.enabled": false,
     "extensions.autoUpdate": false,
     "php.suggest.basic": false,
