@@ -29,5 +29,12 @@
         ".project": true,
         ".settings": true,
         "tests/coverage/": true
-    }
+    },
+    "editor.fontSize": 13,
+    "intelephense.environment.includePaths": [ "/config/libs/" ],
+    "intelephense.environment.phpVersion": "8.0.0",
+    "intelephense.stubs": [
+        "Core", "curl", "date", "filter", "hash", "json", "mbstring", "memcache",
+        "openssl", "pcre", "PDO", "pdo_mysql", "SPL", "standard", "zlib", "Zend OPcache"
+    ]
 }
