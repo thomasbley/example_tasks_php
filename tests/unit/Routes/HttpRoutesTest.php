@@ -17,8 +17,7 @@ use TaskService\Serializer\TasksSerializer;
 
 class HttpRoutesTest extends TestCase
 {
-    /** @var mixed */
-    protected MockObject $app;
+    protected mixed $app;
 
     protected Customer $customer;
 
