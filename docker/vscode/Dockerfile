@@ -22,6 +22,11 @@ RUN useradd -m docker -u ${UID} -d /config -s /bin/bash
 
 USER docker
 
+# bmewburn.vscode-intelephense-client does not yet support phar files in include path
+RUN curl -s https://phar.phpunit.de/phpunit-9.5.0.phar >/config/phpunit.phar \
+    && php -r "(new Phar('/config/phpunit.phar'))->extractTo('/config/libs/phpunit/');" \
+    && rm /config/phpunit.phar
+
 RUN code-server --install-extension bmewburn.vscode-intelephense-client \
                 --install-extension fterrag.vscode-php-cs-fixer \
                 --install-extension alphabotsec.vscode-eclipse-keybindings \
