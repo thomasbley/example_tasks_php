@@ -2,7 +2,6 @@
 
 namespace TaskService\Tests\Unit\Routes;
 
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use TaskService\Controllers\TasksController;
 use TaskService\Exceptions\HttpException;
@@ -17,6 +16,7 @@ use TaskService\Serializer\TasksSerializer;
 
 class HttpRoutesTest extends TestCase
 {
+    /** @var mixed */
     protected mixed $app;
 
     protected Customer $customer;
