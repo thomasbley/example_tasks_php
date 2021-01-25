@@ -2,6 +2,7 @@
 
 namespace TaskService\Tests\Integration\Repositories;
 
+use PDO;
 use PHPUnit\Framework\TestCase;
 use TaskService\Framework\App;
 use TaskService\Models\Customer;
@@ -32,14 +33,22 @@ class TasksRepositoryTest extends TestCase
 
     public function testCreateTask(): void
     {
-        $actual = $this->app->getTasksRepository()->createTask($this->customer, 'test', '2020-05-22');
-        $this->assertNotEmpty($actual->id);
+        $expected = $this->app->getTasksRepository()->createTask($this->customer, 'test', '2020-05-22');
+        $this->assertNotEmpty($expected->id);
 
         $query = '
             SELECT id, title, duedate, completed FROM task WHERE id = ? AND customer_id = ?
         ';
         $statement = $this->app->getDatabase()->prepare($query);
-        $statement->execute([$actual->id, $this->customer->id]);
+        $statement->execute([$expected->id, $this->customer->id]);
+
+        $actual = $statement->fetch(PDO::FETCH_ASSOC);
+
+        $this->assertNotEmpty($actual);
+        $this->assertEquals($expected->id, $actual['id']);
+        $this->assertEquals('test', $actual['title']);
+        $this->assertEquals('2020-05-22', $actual['duedate']);
+        $this->assertEquals('0', $actual['completed']);
     }
 
     public function testTaskExists(): void
