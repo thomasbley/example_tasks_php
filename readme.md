@@ -73,7 +73,7 @@ on completion.
 
 #### URLs
 
-    http://127.0.0.1:8000/?folder=/var/www (VS-Code IDE, hit Crtl+Shift+t to run tests)
+    http://127.0.0.1:8000/?folder=/var/www (VS-Code IDE, hit Crtl+Shift+t to run tests, takes a few seconds to load for first start)
 
     http://127.0.0.1:8080/v1/tasks (API endpoint)
 
