@@ -39,5 +39,6 @@
     ],
     "psalm.psalmScriptPath": "/var/www/bin/psalm-441.phar",
     "psalm.psalmClientScriptPath": "/var/www/bin/psalm-441.phar",
-    "psalm.hideStatusMessageWhenRunning": true
+    "psalm.hideStatusMessageWhenRunning": true,
+    "psalm.unusedVariableDetection": true
 }

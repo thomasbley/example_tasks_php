@@ -134,8 +134,10 @@ class TasksTest extends TestCase
 
         $response = (string) curl_exec($ch);
         $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $time = curl_getinfo($ch, CURLINFO_TOTAL_TIME);
+        $error = curl_error($ch);
 
-        $this->assertEquals($code, $responseCode);
+        $this->assertEquals($code, $responseCode, print_r([$response, $responseCode, $time, $error], true));
 
         curl_close($ch);
 
