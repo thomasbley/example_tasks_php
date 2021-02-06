@@ -1,10 +1,11 @@
 {
     "terminal.integrated.shell.linux": "/bin/bash",
-    "workbench.colorTheme": "Default Dark+",
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": false,
     "editor.folding": false,
     "editor.renderLineHighlight": "line",
+    "editor.fontSize": 13,
+    "workbench.colorTheme": "Default Dark+",
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#37373d"
     },
@@ -15,12 +16,7 @@
     "extensions.autoUpdate": false,
     "php.suggest.basic": false,
     "git.enabled": false,
-    "vscode-php-cs-fixer.toolPath": "/var/www/bin/phpcsfixer-2182.phar",
-    "vscode-php-cs-fixer.config": "/var/www/phpcsfixer.conf",
-    "vscode-php-cs-fixer.fixOnSave": false,
     "[php]": { "editor.defaultFormatter": "fterrag.vscode-php-cs-fixer" },
-    "intelephense.format.enable": false,
-    "intelephense.telemetry.enabled": false,
     "files.exclude": {
         ".bash*": true,
         ".buildpath": true,
@@ -30,15 +26,10 @@
         ".settings": true,
         "tests/coverage/": true
     },
-    "editor.fontSize": 13,
-    "intelephense.environment.includePaths": [ "/config/libs/" ],
-    "intelephense.environment.phpVersion": "8.0.0",
-    "intelephense.stubs": [
-        "Core", "curl", "date", "filter", "hash", "json", "mbstring", "memcache",
-        "openssl", "pcre", "PDO", "pdo_mysql", "SPL", "standard", "zlib", "Zend OPcache"
-    ],
-    "psalm.psalmScriptPath": "/var/www/bin/psalm-441.phar",
-    "psalm.psalmClientScriptPath": "/var/www/bin/psalm-441.phar",
+    "vscode-php-cs-fixer.toolPath": "/var/www/bin/phpcsfixer-2182.phar",
+    "vscode-php-cs-fixer.config": "/var/www/phpcsfixer.conf",
+    "vscode-php-cs-fixer.fixOnSave": false,
+    "psalm.psalmScriptPath": "/config/libs/psalm/vendor/bin/psalm-language-server",
     "psalm.hideStatusMessageWhenRunning": true,
     "psalm.unusedVariableDetection": true
 }
