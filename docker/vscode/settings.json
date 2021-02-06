@@ -29,6 +29,13 @@
     "vscode-php-cs-fixer.toolPath": "/var/www/bin/phpcsfixer-2182.phar",
     "vscode-php-cs-fixer.config": "/var/www/phpcsfixer.conf",
     "vscode-php-cs-fixer.fixOnSave": false,
+    "intelephense.format.enable": false,
+    "intelephense.telemetry.enabled": false,
+    "intelephense.environment.phpVersion": "8.0.0",
+    "intelephense.stubs": [
+        "Core", "curl", "date", "dom", "filter", "hash", "json", "mbstring", "memcache",
+        "openssl", "pcre", "PDO", "pdo_mysql", "SPL", "standard", "zlib", "Zend OPcache", "xml"
+    ],
     "psalm.psalmScriptPath": "/var/www/app/vendor/bin/psalm-language-server",
     "psalm.hideStatusMessageWhenRunning": true,
     "psalm.unusedVariableDetection": true
