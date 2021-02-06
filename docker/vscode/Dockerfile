@@ -11,7 +11,7 @@ RUN apt-get -y update \
         php8.0-curl \
         php8.0-xml \
         php8.0-memcache \
-    && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.8.0/code-server_3.8.0_amd64.deb \
+    && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.8.1/code-server_3.8.1_amd64.deb \
     && dpkg -i /tmp/code-server.deb \
     && apt-get upgrade -y \
     && apt-get clean \
@@ -22,19 +22,23 @@ RUN useradd -m docker -u ${UID} -d /config -s /bin/bash
 
 USER docker
 
+# ENV SERVICE_URL https://marketplace.visualstudio.com/_apis/public/gallery
+# ENV ITEM_URL https://marketplace.visualstudio.com/items
+
+ADD psalm-vscode-plugin-dev.vsix /tmp/
+
 # bmewburn.vscode-intelephense-client does not yet support phar files in include path
-RUN curl -s https://phar.phpunit.de/phpunit-9.5.0.phar >/config/phpunit.phar \
+RUN curl -s https://phar.phpunit.de/phpunit-9.5.2.phar >/config/phpunit.phar \
     && php -r "(new Phar('/config/phpunit.phar'))->extractTo('/config/libs/phpunit/');" \
     && rm /config/phpunit.phar
 
 RUN code-server --install-extension bmewburn.vscode-intelephense-client \
                 --install-extension fterrag.vscode-php-cs-fixer \
                 --install-extension alphabotsec.vscode-eclipse-keybindings \
+                --install-extension /tmp/psalm-vscode-plugin-dev.vsix \
     && chmod -R a+w /config
 
 WORKDIR /var/www
-
-ENV PHP_CS_FIXER_IGNORE_ENV=1
 
 EXPOSE 8000
 
@@ -43,5 +47,6 @@ CMD [ \
     "--auth", "none", \
     "--disable-telemetry", \
     "--disable-update-check", \
+    "--home", "http://127.0.0.1:8000/?folder=/var/www", \
     "--bind-addr", "0.0.0.0:8000" \
 ]

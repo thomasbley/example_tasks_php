@@ -36,5 +36,8 @@
     "intelephense.stubs": [
         "Core", "curl", "date", "filter", "hash", "json", "mbstring", "memcache",
         "openssl", "pcre", "PDO", "pdo_mysql", "SPL", "standard", "zlib", "Zend OPcache"
-    ]
+    ],
+    "psalm.psalmScriptPath": "/var/www/bin/psalm-441.phar",
+    "psalm.psalmClientScriptPath": "/var/www/bin/psalm-441.phar",
+    "psalm.hideStatusMessageWhenRunning": true
 }
