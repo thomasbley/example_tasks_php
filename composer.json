@@ -19,5 +19,9 @@
     "autoload": {
         "psr-4": { "TaskService\\": "app/" }
     },
-    "prefer-stable" : true
+    "prefer-stable" : true,
+    "require-dev": {
+        "vimeo/psalm": "^4.4",
+        "phpunit/phpunit": "^9"
+    }
 }

@@ -26,16 +26,7 @@ USER docker
 # ENV SERVICE_URL https://marketplace.visualstudio.com/_apis/public/gallery
 # ENV ITEM_URL https://marketplace.visualstudio.com/items
 
-ADD composer.* /tmp/
 ADD psalm-vscode-plugin-1.2.2.vsix /tmp/
-
-# psalm-vscode plugin v1.2.2 does not yet support to use psalm as phar
-RUN curl -#L -o /tmp/composer-bin.phar https://getcomposer.org/download/2.0.9/composer.phar \
-   && mkdir -p /config/libs/psalm/ \
-   && cd /config/libs/psalm/ \
-   && cp /tmp/composer.* ./ \
-   && php /tmp/composer-bin.phar install --no-cache --no-progress --ignore-platform-reqs \
-   && rm /tmp/composer-bin.phar
 
 RUN code-server --install-extension fterrag.vscode-php-cs-fixer \
                 --install-extension alphabotsec.vscode-eclipse-keybindings \
