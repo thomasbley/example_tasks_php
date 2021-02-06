@@ -129,7 +129,7 @@ class TasksTest extends TestCase
             CURLOPT_POSTFIELDS => json_encode($params),
             CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Authorization: ' . $this->authorization],
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_TIMEOUT => 5,
+            CURLOPT_TIMEOUT => 10,
         ]);
 
         $response = (string) curl_exec($ch);
