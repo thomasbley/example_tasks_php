@@ -14,7 +14,9 @@
         "php": ">=7.4",
         "ext-mbstring": "*",
         "ext-curl": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-xml": "*",
+        "ext-xmlwriter": "*"
     },
     "autoload": {
         "psr-4": { "TaskService\\": "app/" }
