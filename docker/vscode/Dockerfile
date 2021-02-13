@@ -26,12 +26,12 @@ USER docker
 # ENV SERVICE_URL https://marketplace.visualstudio.com/_apis/public/gallery
 # ENV ITEM_URL https://marketplace.visualstudio.com/items
 
-ADD psalm-vscode-plugin-1.2.2.vsix /tmp/
+ADD getpsalm.psalm-vscode-plugin-1.2.2.vsix /tmp/
 
 RUN code-server --install-extension fterrag.vscode-php-cs-fixer \
                 --install-extension alphabotsec.vscode-eclipse-keybindings \
                 --install-extension bmewburn.vscode-intelephense-client \
-                --install-extension /tmp/psalm-vscode-plugin-1.2.2.vsix \
+                --install-extension /tmp/getpsalm.psalm-vscode-plugin-1.2.2.vsix \
     && chmod -R a+w /config
 
 WORKDIR /var/www
