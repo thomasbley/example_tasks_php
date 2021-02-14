@@ -15,7 +15,7 @@
     "breadcrumbs.enabled": false,
     "extensions.autoUpdate": false,
     "php.suggest.basic": false,
-    "git.enabled": false,
+    "git.enabled": true,
     "[php]": { "editor.defaultFormatter": "fterrag.vscode-php-cs-fixer" },
     "files.exclude": {
         ".bash*": true,
