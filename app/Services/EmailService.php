@@ -36,10 +36,12 @@ class EmailService
         if (empty($email->template)) {
             throw new InvalidArgumentException('missing template');
         }
+        if (!file_exists($email->template)) {
+            throw new InvalidArgumentException('missing template file');
+        }
 
         ob_start();
 
-        /** @psalm-suppress UnresolvableInclude */
         require $email->template;
 
         return trim(ob_get_clean());

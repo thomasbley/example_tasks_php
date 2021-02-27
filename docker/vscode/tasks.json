@@ -15,7 +15,7 @@
         {
             "label": "psalm",
             "type": "shell",
-            "command": "bin/psalm-452.phar --no-cache",
+            "command": "bin/psalm-462.phar --no-cache",
             "presentation": {
                 "showReuseMessage": false,
                 "echo": false
@@ -24,7 +24,7 @@
         {
             "label": "psalm_taint",
             "type": "shell",
-            "command": "bin/psalm-452.phar --no-cache --taint-analysis",
+            "command": "bin/psalm-462.phar --no-cache --taint-analysis",
             "presentation": {
                 "showReuseMessage": false,
                 "echo": false
