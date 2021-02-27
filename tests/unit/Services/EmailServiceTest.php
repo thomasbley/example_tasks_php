@@ -62,6 +62,18 @@ class EmailServiceTest extends TestCase
         $service->sendEmail($email);
     }
 
+    public function testSendEmailMissingTemplateFile(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('missing template file');
+
+        $email = new Email();
+        $email->template = 'invalid';
+
+        $service = new EmailService();
+        $service->sendEmail($email);
+    }
+
     public function testSendEmailFailure(): void
     {
         $this->expectWarning();

@@ -108,6 +108,7 @@ services:
       - php
       - mysql
       - memcache
+      - mailhog
   phploc:
     image: example_tasks_php
     cap_drop: [all]
