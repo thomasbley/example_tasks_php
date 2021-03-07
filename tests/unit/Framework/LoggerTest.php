@@ -2,9 +2,9 @@
 
 namespace TaskService\Tests\Unit\Framework;
 
+use PHPUnit\Framework\TestCase;
 use TaskService\Framework\App;
 use TaskService\Framework\Logger;
-use PHPUnit\Framework\TestCase;
 
 class LoggerTest extends TestCase
 {
@@ -12,7 +12,7 @@ class LoggerTest extends TestCase
     {
         $logfile = tempnam('/tmp', 'loggertest');
 
-        $app = new App([], [], [], [], []);
+        $app = new App([], [], [], []);
         $app->getConfig()->logfile = $logfile;
 
         $logger = new Logger($app);
@@ -29,7 +29,7 @@ class LoggerTest extends TestCase
     {
         $logfile = tempnam('/tmp', 'loggertest');
 
-        $app = new App([], [], [], [], []);
+        $app = new App([], [], [], []);
         $app->getConfig()->logfile = $logfile;
 
         $logger = new Logger($app);
@@ -44,7 +44,7 @@ class LoggerTest extends TestCase
     {
         $logfile = tempnam('/tmp', 'loggertest');
 
-        $app = new App([], [], [], [], []);
+        $app = new App([], [], [], []);
         $app->getConfig()->logfile = $logfile;
 
         $logger = new Logger($app);
