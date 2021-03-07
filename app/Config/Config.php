@@ -81,4 +81,6 @@ n1nOtG1VzWjPCMpho9R4jbjrlFFNkYhO53VfH3TMEq0Zlh61pLxeYqGcOofEaWXO
 QLJoZwl3v8sTCM3qjwDRQJmFoDu7QOmz7ibrQW/uMT82QDBtGP0YFof7aiKXOCUg
 PPFl8G67oV1DL90wPM4GdlQFh+Fxs9wk76K3xQLMHW0tsEqmADQ842F+Yx6L
 -----END RSA PRIVATE KEY-----';
+
+    public string $logfile = '/var/log/shared/pipe';
 }

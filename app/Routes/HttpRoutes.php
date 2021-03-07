@@ -5,6 +5,7 @@ namespace TaskService\Routes;
 use TaskService\Exceptions\HttpException;
 use TaskService\Framework\App;
 use TaskService\Models\Task;
+use Throwable;
 
 class HttpRoutes
 {
@@ -79,6 +80,19 @@ class HttpRoutes
             throw new HttpException('not found', 404);
         });
 
-        $router->match($app->getHeader('REQUEST_METHOD'), $app->getHeader('DOCUMENT_URI'));
+        try {
+            $router->match($app->getHeader('REQUEST_METHOD'), $app->getHeader('DOCUMENT_URI'));
+        } catch (Throwable $exp) {
+            $event = [
+                'message' => $exp->getMessage(),
+                'code' => (int) $exp->getCode(),
+                'customer' => $customer->id ?? 0,
+                'method' => $app->getHeader('REQUEST_METHOD'),
+                'uri' => $app->getHeader('DOCUMENT_URI'),
+            ];
+            $app->getLogger()->log($event, $event['code']);
+
+            throw $exp;
+        }
     }
 }

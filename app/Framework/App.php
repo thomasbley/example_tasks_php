@@ -103,7 +103,7 @@ class App
 
     public function getLogger(): Logger
     {
-        return new Logger();
+        return new Logger($this);
     }
 
     public function getHttpRoutes(): HttpRoutes
