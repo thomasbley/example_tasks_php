@@ -8,11 +8,16 @@ services:
     cap_add: [chown, setgid, setuid, kill]
     volumes:
       - ./:/var/www
+      - logs:/var/log/shared
     networks:
       - backend
     restart: unless-stopped
     stop_grace_period: 30s
     stop_signal: SIGQUIT
+  logger:
+    build: ./docker/php-log-tail
+    volumes:
+      - logs:/var/log/shared
   nginx:
     image: nginx:stable-alpine
     cap_drop: [all]
@@ -75,5 +80,6 @@ networks:
     driver: bridge
 
 volumes:
+  logs:
   mysql-data:
   coverage-data:

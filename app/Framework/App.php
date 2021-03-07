@@ -101,6 +101,11 @@ class App
         return new Router();
     }
 
+    public function getLogger(): Logger
+    {
+        return new Logger();
+    }
+
     public function getHttpRoutes(): HttpRoutes
     {
         return new HttpRoutes($this);

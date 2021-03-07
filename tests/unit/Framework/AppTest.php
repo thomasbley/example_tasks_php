@@ -7,6 +7,7 @@ use TaskService\Config\Config;
 use TaskService\Controllers\TasksController;
 use TaskService\Framework\App;
 use TaskService\Framework\Authentication;
+use TaskService\Framework\Logger;
 use TaskService\Framework\Output;
 use TaskService\Framework\Router;
 use TaskService\Repositories\MigrationsRepository;
@@ -54,6 +55,12 @@ class AppTest extends TestCase
     {
         $app = new App([], [], [], []);
         $this->assertInstanceOf(Router::class, $app->getRouter());
+    }
+
+    public function testGetLogger(): void
+    {
+        $app = new App([], [], [], []);
+        $this->assertInstanceOf(Logger::class, $app->getLogger());
     }
 
     public function testGetHttproutes(): void
