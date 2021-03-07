@@ -99,7 +99,8 @@ on completion.
 
 Design principes
 
-    no full-stack framework (frameworkless), best performance, less complexity, more flexibility, less upgrading
+    no full-stack framework (frameworkless), best performance, less complexity, more flexibility
+    no learning of frameworks, no upgrading of frameworks, no dependancy on frameworks, you build it, you own it
     no magic functions, no reflection, no annotations, no yaml configs, enable auto-complete for _everything_ in the IDE
     minimum memory footprint, minimum amount of code
     use composer for auto-loading and libraries
