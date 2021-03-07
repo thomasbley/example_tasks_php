@@ -8,7 +8,7 @@ before_install:
 
 install:
   - docker-compose up -d mysql
-  - docker-compose build php
+  - docker-compose build php logger
   - docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer_validate
   - docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer
   - mkdir -p tests/coverage && chmod 0777 tests/coverage

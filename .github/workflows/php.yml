@@ -12,7 +12,7 @@ jobs:
       run: docker-compose up -d mysql
 
     - name: Build php container
-      run: docker-compose build php
+      run: docker-compose build php logger
 
     - name: Validate composer file
       run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer_validate
