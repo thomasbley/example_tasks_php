@@ -13,7 +13,7 @@ RUN apt-get -y update \
         php8.0-memcache \
         php8.0-zip \
         git \
-    && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.9.0/code-server_3.9.0_amd64.deb \
+    && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.9.1/code-server_3.9.1_amd64.deb \
     && dpkg -i /tmp/code-server.deb \
     && apt-get upgrade -y \
     && apt-get clean \
@@ -23,9 +23,6 @@ ARG UID
 RUN useradd -m docker -u ${UID} -d /config -s /bin/bash
 
 USER docker
-
-# ENV SERVICE_URL https://marketplace.visualstudio.com/_apis/public/gallery
-# ENV ITEM_URL https://marketplace.visualstudio.com/items
 
 ADD getpsalm.psalm-vscode-plugin-1.2.2.vsix /tmp/
 
