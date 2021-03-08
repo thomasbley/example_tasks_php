@@ -58,18 +58,18 @@ services:
       - "127.0.0.1:8025:8025"
     networks:
       - backend
-  vscode:
+  code-server:
     build:
-      context: ./docker/vscode
+      context: ./docker/code-server
       args:
       - UID
     cap_drop: [all]
     userns_mode: "host"
     volumes:
       - ./:/var/www
-      - ./docker/vscode/settings.json:/config/.local/share/code-server/User/settings.json
-      - ./docker/vscode/tasks.json:/config/.local/share/code-server/User/tasks.json
-      - ./docker/vscode/keybindings.json:/config/.local/share/code-server/User/keybindings.json
+      - ./docker/code-server/settings.json:/config/.local/share/code-server/User/settings.json
+      - ./docker/code-server/tasks.json:/config/.local/share/code-server/User/tasks.json
+      - ./docker/code-server/keybindings.json:/config/.local/share/code-server/User/keybindings.json
     ports:
       - "127.0.0.1:8000:8000"
     networks:
