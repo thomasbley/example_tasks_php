@@ -27,7 +27,7 @@
         "tests/coverage/": true
     },
     "vscode-php-cs-fixer.toolPath": "/var/www/bin/phpcsfixer-2182.phar",
-    "vscode-php-cs-fixer.config": "/var/www/phpcsfixer.conf",
+    "vscode-php-cs-fixer.config": "/var/www/tasks/phpcsfixer.conf",
     "vscode-php-cs-fixer.fixOnSave": false,
     "intelephense.format.enable": false,
     "intelephense.telemetry.enabled": false,
