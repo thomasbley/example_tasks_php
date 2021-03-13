@@ -5,13 +5,13 @@
     "config": {
         "secure-http": true,
         "platform": {
-            "php": "7.4"
+            "php": "8.0"
         },
         "preferred-install" : "dist",
         "vendor-dir": "src/vendor"
     },
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.0",
         "ext-mbstring": "*",
         "ext-curl": "*",
         "ext-json": "*",
