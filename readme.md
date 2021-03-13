@@ -11,8 +11,8 @@ on completion.
 #### Setup
 
     # setup composer
-    mkdir -m 0777 app/vendor
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer_dev
+    mkdir -m 0777 tasks/src/vendor
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm composer_dev
 
     # build code-server
     docker-compose build --build-arg UID=$(id -u) code-server
@@ -22,10 +22,10 @@ on completion.
     docker-compose up -d
 
     # setup database
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell update_database.php
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm shell update_database.php
 
     # generate bearer token for customer id "42" with email "foo.bar@example.com"
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php \
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm shell generate_token.php \
         42 foo.bar@example.com
 
     # access/error logs
@@ -42,7 +42,7 @@ on completion.
     docker-compose exec mysql sh -c "tail -f /tmp/mysql.log"
 
     # start memcache client
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm memcache_client
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm memcache_client
 
     # remove containers/images/volumes
     docker-compose down
@@ -53,23 +53,23 @@ on completion.
 
 #### Static code analyzers
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm psalm
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm psalm_taint
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpcsfixer
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phploc
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm psalm
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm psalm_taint
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phpcsfixer
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phploc
 
 #### Tests
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpunit
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phpunit
 
 #### Monitoring
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm fpm_status
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm memcache_status
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm fpm_status
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm memcache_status
 
 #### Convert docs/api.md to docs/swaggerui/api_spec.json
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm apib2swagger
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm apib2swagger
 
 #### URLs
 
@@ -83,7 +83,7 @@ on completion.
 
 #### Command line tests
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php \
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm shell generate_token.php \
         42 foo.bar@example.com
 
     export TOKEN=...

@@ -15,10 +15,10 @@ jobs:
       run: docker-compose build php logger
 
     - name: Validate composer file
-      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer_validate
+      run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm composer_validate
 
     - name: Run composer
-      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer
+      run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm composer
 
     - name: Create coverage directory
       run: mkdir -p tests/coverage && chmod 0777 tests/coverage
@@ -27,19 +27,19 @@ jobs:
       run: until docker-compose exec -T mysql mysql -uroot -proot -e "select now()"; do echo "waiting..."; sleep 1; done
 
     - name: Run phpcsfixer
-      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpcsfixer
+      run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phpcsfixer
       
     - name: Run psalm
-      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm psalm
+      run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm psalm
 
     - name: Run psalm taint analysis
-      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm psalm_taint
+      run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm psalm_taint
 
     - name: Run update datebase
-      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell update_database.php
+      run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm shell update_database.php
 
     - name: Run phpunit
-      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpunit
+      run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phpunit
 
     - name: Run phploc
-      run: docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phploc
+      run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phploc

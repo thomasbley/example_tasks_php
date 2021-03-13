@@ -4,10 +4,10 @@ services:
   shell:
     image: example_tasks_php
     cap_drop: [all]
-    working_dir: /var/www/app/shell
+    working_dir: /var/www/src/shell
     entrypoint: php
     volumes:
-      - ./:/var/www
+      - ./tasks/:/var/www
     networks:
       - backend
     links:
@@ -20,7 +20,7 @@ services:
     entrypoint: composer-209.phar
     command: install --no-dev --no-cache --no-progress -o --ignore-platform-reqs
     volumes:
-      - ./:/var/www
+      - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
   composer_dev:
     image: example_tasks_php
@@ -29,7 +29,7 @@ services:
     entrypoint: composer-209.phar
     command: install --no-cache --no-progress -o --ignore-platform-reqs
     volumes:
-      - ./:/var/www
+      - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
   composer_validate:
     image: example_tasks_php
@@ -38,15 +38,15 @@ services:
     entrypoint: composer-209.phar
     command: validate --no-cache
     volumes:
-      - ./:/var/www
+      - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
   fpm_status:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: php app/shell/fpm_status.php
+    entrypoint: php src/shell/fpm_status.php
     volumes:
-      - ./:/var/www
+      - ./tasks/:/var/www
     networks:
       - backend
     links:
@@ -74,7 +74,7 @@ services:
     working_dir: /var/www
     entrypoint: psalm-462.phar --no-cache
     volumes:
-      - ./:/var/www
+      - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
   psalm_taint:
     image: example_tasks_php
@@ -82,7 +82,7 @@ services:
     working_dir: /var/www
     entrypoint: psalm-462.phar --no-cache --taint-analysis
     volumes:
-      - ./:/var/www
+      - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
   phpcsfixer:
     image: example_tasks_php
@@ -90,7 +90,7 @@ services:
     working_dir: /var/www
     entrypoint: phpcsfixer-2182.phar fix --verbose --dry-run --diff --config phpcsfixer.conf
     volumes:
-      - ./:/var/www
+      - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
   phpunit:
     image: example_tasks_php
@@ -99,7 +99,7 @@ services:
     entrypoint: php -dmemory_limit=64M -dextension=pcov.so /usr/local/sbin/phpunit-952.phar --testdox --coverage-text --coverage-html=/var/coverage
     volumes:
       - coverage-data:/var/coverage
-      - ./:/var/www
+      - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
     networks:
       - backend
@@ -113,9 +113,9 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: phploc-702.phar app/ tests/
+    entrypoint: php -dmemory_limit=128M /usr/local/sbin/phploc-702.phar ./
     volumes:
-      - ./:/var/www
+      - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
   apib2swagger:
     image: kminami/apib2swagger
