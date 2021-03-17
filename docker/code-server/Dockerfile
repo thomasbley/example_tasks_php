@@ -10,7 +10,6 @@ RUN apt-get -y update \
         php8.0-mbstring \
         php8.0-curl \
         php8.0-xml \
-        php8.0-memcache \
         php8.0-zip \
         git \
     && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.9.1/code-server_3.9.1_amd64.deb \
@@ -28,7 +27,7 @@ ADD getpsalm.psalm-vscode-plugin-1.2.2.vsix /tmp/
 
 RUN code-server --install-extension fterrag.vscode-php-cs-fixer \
                 --install-extension alphabotsec.vscode-eclipse-keybindings \
-                --install-extension bmewburn.vscode-intelephense-client \
+#                --install-extension bmewburn.vscode-intelephense-client \
                 --install-extension /tmp/getpsalm.psalm-vscode-plugin-1.2.2.vsix \
     && chmod -R a+w /config
 
