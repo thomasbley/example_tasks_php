@@ -23,7 +23,6 @@
     },
     "prefer-stable" : true,
     "require-dev": {
-        "vimeo/psalm": "^4.4",
-        "phpunit/phpunit": "^9"
+        "vimeo/psalm": "^4.4"
     }
 }
