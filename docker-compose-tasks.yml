@@ -12,7 +12,6 @@ services:
       - backend
     links:
       - mysql
-      - memcache
   composer:
     image: example_tasks_php
     cap_drop: [all]
@@ -51,28 +50,11 @@ services:
       - backend
     links:
       - php
-  memcache_status:
-    image: example_tasks_php
-    cap_drop: [all]
-    entrypoint: sh -c "echo 'stats' | nc memcache 11211"
-    networks:
-      - backend
-    links:
-      - memcache
-  memcache_client:
-    image: busybox
-    cap_drop: [all]
-    entrypoint: telnet
-    command: memcache 11211
-    networks:
-      - backend
-    links:
-      - memcache
   psalm:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: psalm-462.phar --no-cache
+    entrypoint: psalm-464.phar --no-cache
     volumes:
       - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
@@ -80,7 +62,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: psalm-462.phar --no-cache --taint-analysis
+    entrypoint: psalm-464.phar --no-cache --taint-analysis
     volumes:
       - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
@@ -107,7 +89,6 @@ services:
       - nginx
       - php
       - mysql
-      - memcache
       - mailhog
   phploc:
     image: example_tasks_php

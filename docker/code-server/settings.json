@@ -33,7 +33,7 @@
     "intelephense.telemetry.enabled": false,
     "intelephense.environment.phpVersion": "8.0.0",
     "intelephense.stubs": [
-        "Core", "curl", "date", "dom", "filter", "hash", "json", "mbstring", "memcache",
+        "Core", "curl", "date", "dom", "filter", "hash", "json", "mbstring",
         "openssl", "pcre", "PDO", "pdo_mysql", "SPL", "standard", "zlib", "Zend OPcache", "xml"
     ],
     "psalm.psalmScriptPath": "/var/www/tasks/src/vendor/bin/psalm-language-server",

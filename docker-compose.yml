@@ -7,7 +7,7 @@ services:
     cap_drop: [all]
     cap_add: [chown, setgid, setuid, kill]
     volumes:
-      - ./:/var/www
+      - ./tasks/src:/var/www/tasks/src
       - logs:/var/log/shared
     networks:
       - backend
@@ -41,13 +41,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tasks
-    networks:
-      - backend
-    restart: unless-stopped
-  memcache:
-    image: memcached:alpine
-    cap_drop: [all]
-    command: '-m 128 -v'
     networks:
       - backend
     restart: unless-stopped

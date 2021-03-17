@@ -18,7 +18,7 @@
         {
             "label": "psalm",
             "type": "shell",
-            "command": "psalm-462.phar --no-cache",
+            "command": "psalm-464.phar --no-cache",
             "options": {
                 "cwd": "/var/www/tasks"
             },
@@ -30,7 +30,7 @@
         {
             "label": "psalm_taint",
             "type": "shell",
-            "command": "psalm-462.phar --no-cache --taint-analysis",
+            "command": "psalm-464.phar --no-cache --taint-analysis",
             "options": {
                 "cwd": "/var/www/tasks"
             },
