@@ -2,7 +2,6 @@
 
 namespace TaskService\Framework;
 
-use Memcache;
 use PDO;
 use TaskService\Config\Config;
 use TaskService\Controllers\TasksController;
@@ -73,22 +72,6 @@ class App
         }
 
         return $this->container['database'];
-    }
-
-    public function getMemcache(): Memcache
-    {
-        if (!isset($this->container['memcache'])) {
-            $config = $this->getConfig();
-
-            $cache = new Memcache();
-            foreach ($config->cacheHosts as $host) {
-                $cache->addserver($host);
-            }
-
-            $this->container['memcache'] = $cache;
-        }
-
-        return $this->container['memcache'];
     }
 
     public function getMigrationsRepository(): MigrationsRepository

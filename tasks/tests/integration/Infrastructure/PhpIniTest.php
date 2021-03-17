@@ -10,7 +10,7 @@ class PhpIniTest extends TestCase
     {
         $requiredExtensions = [
             'curl', 'filter', 'hash', 'json', 'mbstring', 'openssl', 'pcre',
-            'pdo_mysql', 'SPL', 'zlib', 'Zend OPcache', 'memcache',
+            'pdo_mysql', 'SPL', 'zlib', 'Zend OPcache',
         ];
 
         $extensions = get_loaded_extensions();

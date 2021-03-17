@@ -41,9 +41,6 @@ on completion.
     # show mysql query log
     docker-compose exec mysql sh -c "tail -f /tmp/mysql.log"
 
-    # start memcache client
-    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm memcache_client
-
     # remove containers/images/volumes
     docker-compose down
     docker images purge
@@ -65,7 +62,6 @@ on completion.
 #### Monitoring
 
     docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm fpm_status
-    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm memcache_status
 
 #### Convert docs/api.md to docs/swaggerui/api_spec.json
 
