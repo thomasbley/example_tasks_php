@@ -10,11 +10,14 @@ on completion.
 
 #### Setup
 
+    # build php container
+    docker-compose build php
+
     # setup composer
     mkdir -m 0777 tasks/src/vendor
     docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm composer_dev
 
-    # build code-server
+    # build code-server container
     docker-compose build --build-arg UID=$(id -u) code-server
 
     # start containers
