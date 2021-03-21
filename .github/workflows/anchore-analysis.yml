@@ -26,3 +26,6 @@ jobs:
         image: "localbuild/php80-alpine:latest"
         acs-report-enable: true
         fail-build: true
+        severity-cutoff: "negligible"
+    - name: Inspect action SARIF report
+      run: cat ${{ steps.scan.outputs.sarif }}        
