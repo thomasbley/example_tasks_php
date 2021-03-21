@@ -20,12 +20,10 @@ jobs:
       uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build docker/php80-alpine/ --tag localbuild/php80-alpine:latest
-    - name: Build the Docker image test
-      run: docker pull debian:jessie-slim
     - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
       uses: anchore/scan-action@main
       with:
-        image: "debian:jessie-slim"
+        image: "localbuild/php80-alpine:latest"
         severity-cutoff: "negligible"
         fail-build: true
         acs-report-enable: true
