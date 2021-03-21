@@ -24,8 +24,10 @@ jobs:
       uses: anchore/scan-action@main
       with:
         image: "localbuild/php80-alpine:latest"
+        severity-cutoff: "negligible"
         acs-report-enable: true
         fail-build: true
-        severity-cutoff: "negligible"
+    - name: grype scan JSON results
+      run: for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
     - name: Inspect action SARIF report
-      run: cat ${{ steps.scan.outputs.sarif }}        
+      run: cat ${{ steps.scan.outputs.sarif }}
