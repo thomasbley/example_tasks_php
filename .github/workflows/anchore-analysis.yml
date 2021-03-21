@@ -33,4 +33,5 @@ jobs:
       with:
         sarif_file: results.sarif
     - name: grype scan JSON results
-      run: find . -name "*.json" && find . -name "*.sarif"
+      run: cat ./results.sarif
+
