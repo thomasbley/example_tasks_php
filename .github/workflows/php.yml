@@ -8,6 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: local PHP security checker
+      run: find ./ -name "composer.lock" -not -path "*/vendor/*" | xargs -ti bin/localphpsecuritychecker-100 --path={}
+
     - name: Start mysql container
       run: docker-compose up -d mysql
 
