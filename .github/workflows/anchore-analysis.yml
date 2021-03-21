@@ -21,17 +21,16 @@ jobs:
     - name: Build the Docker image
       run: docker build docker/php80-alpine/ --tag localbuild/php80-alpine:latest
     - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
-      uses: anchore/scan-action@v2
+      uses: anchore/scan-action@main
       with:
         image: "localbuild/php80-alpine:latest"
         severity-cutoff: "negligible"
         fail-build: true
-        debug: false
         acs-report-enable: true
     - name: Upload Anchore Scan Report
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: results.sarif
-    - name: grype scan JSON results
+    - name: cat results.sarif
       run: cat ./results.sarif
 
