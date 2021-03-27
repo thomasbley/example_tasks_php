@@ -12,7 +12,7 @@ RUN apt-get -y update \
         php8.0-xml \
         php8.0-zip \
         git \
-    && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.9.1/code-server_3.9.1_amd64.deb \
+    && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.9.2/code-server_3.9.2_amd64.deb \
     && dpkg -i /tmp/code-server.deb \
     && apt-get upgrade -y \
     && apt-get clean \
@@ -40,6 +40,5 @@ CMD [ \
     "--auth", "none", \
     "--disable-telemetry", \
     "--disable-update-check", \
-    "--home", "http://127.0.0.1:8000/?folder=/var/www", \
     "--bind-addr", "0.0.0.0:8000" \
 ]
