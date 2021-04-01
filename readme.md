@@ -1,4 +1,4 @@
-PHP Example Tasks REST API
+PHP Example Micro Service REST API
 ------------------------------------
 
 [![Actions Build Status](https://github.com/thomasbley/example_tasks_php/workflows/build/badge.svg?branch=master)](https://github.com/thomasbley/example_tasks_php/actions)
