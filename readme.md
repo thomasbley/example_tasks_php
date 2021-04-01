@@ -108,7 +108,7 @@ Design principes
     skip static variables and methods, better testability
     skip method parameter defaults, less complexity
     superglobals are only used in bootstrap (index.php)
-    late initialization of objects using a static DI container (e.g. reduce duration database connections)
+    late initialization of objects using a static DI container (e.g. reduce duration of database connections)
     use minimized alpine containers whenever possible
     test code coverage >99%
     SOLID, DRY, KISS, you build it you own it
