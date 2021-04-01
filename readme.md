@@ -108,6 +108,7 @@ Design principes
     skip static variables and methods, better testability
     skip method parameter defaults, less complexity
     superglobals are only used in bootstrap (index.php)
+    configuration parameters are stored in a single php class per environment using properties
     late initialization of objects using a static DI container (e.g. reduce duration of database connections)
     use minimized alpine containers whenever possible
     test code coverage >99%
