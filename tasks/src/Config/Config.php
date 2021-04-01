@@ -3,7 +3,7 @@
 namespace TaskService\Config;
 
 /**
- * application config
+ * application config for local dev environment and ci
  */
 class Config
 {
