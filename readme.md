@@ -96,21 +96,22 @@ on completion.
     curl -i -X GET -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks/1"
     curl -i -X DELETE -H "Authorization: ${TOKEN}" "${BASE}/v1/tasks/1"
 
-Design principes
+Design principles
 
-    no full-stack framework (frameworkless), best performance, less complexity, more flexibility
+    no full-stack framework (frameworkless), best performance, less complexity, more flexibility, minimum amount of code
     no learning of frameworks, no upgrading of frameworks, no dependancy on frameworks, you build it, you own it
     no magic functions, no reflection, no annotations, no yaml configs, enable auto-complete for _everything_ in the IDE
-    minimum memory footprint, minimum amount of code
+    no ORM, repositories use SQL directly with PDO for getting all SQL features and best performance
+    use PHP directly as template engine, no extra language in the language, best performance by using opcache
+    configuration parameters are stored in a single php class per environment
+    use JWT-tokens instead of session handling
     use composer for auto-loading and libraries
-    use plain old (typed) php objects for models, less memory usage, better performance
+    use plain old (typed) php objects for models, minimum memory footprint, better performance
     use phar files for tools
     skip static variables and methods, better testability
     skip method parameter defaults, less complexity
     superglobals are only used in bootstrap (index.php)
-    configuration parameters are stored in a single php class per environment using properties
-    late initialization of objects using a static DI container (e.g. reduce duration of database connections)
-    repositories use SQL directly with PDO for getting all SQL features and best performance
+    late initialization of objects with a static DI container (e.g. reduce duration of database connections)
     use minimized alpine containers whenever possible
     test code coverage >99%
     SOLID, DRY, KISS, you build it you own it
