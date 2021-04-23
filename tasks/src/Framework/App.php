@@ -11,6 +11,9 @@ use TaskService\Routes\HttpRoutes;
 use TaskService\Serializer\TasksSerializer;
 use TaskService\Services\EmailService;
 
+/**
+ * Application container, provides object initialization
+ */
 class App
 {
     protected array $get;
