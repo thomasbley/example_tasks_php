@@ -15,7 +15,7 @@ on completion.
 
     # setup composer
     mkdir -m 0777 tasks/src/vendor
-    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm composer_dev
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm composer
 
     # build code-server container
     docker-compose build --build-arg UID=$(id -u) code-server

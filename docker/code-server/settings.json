@@ -41,7 +41,7 @@
         "Core", "curl", "date", "dom", "filter", "hash", "json", "mbstring",
         "openssl", "pcre", "PDO", "pdo_mysql", "SPL", "standard", "zlib", "Zend OPcache", "xml"
     ],
-    "psalm.psalmScriptPath": "/var/www/tasks/src/vendor/bin/psalm-language-server",
+    "psalm.psalmScriptPath": "/config/.composer/vendor/bin/psalm-language-server",
     "psalm.hideStatusMessageWhenRunning": true,
     "psalm.unusedVariableDetection": true
 }
