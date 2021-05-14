@@ -6,7 +6,7 @@
         {
             "label": "phpcsfixer",
             "type": "shell",
-            "command": "phpcsfixer-2182.phar fix --verbose --dry-run --diff --config phpcsfixer.conf",
+            "command": "phpcsfixer-3000.phar fix --verbose --dry-run --diff --config phpcsfixer.conf",
             "options": {
                 "cwd": "/var/www/tasks"
             },
@@ -18,7 +18,7 @@
         {
             "label": "psalm",
             "type": "shell",
-            "command": "psalm-464.phar --no-cache",
+            "command": "psalm-472.phar --no-cache",
             "options": {
                 "cwd": "/var/www/tasks"
             },
@@ -30,7 +30,7 @@
         {
             "label": "psalm_taint",
             "type": "shell",
-            "command": "psalm-464.phar --no-cache --taint-analysis",
+            "command": "psalm-472.phar --no-cache --taint-analysis",
             "options": {
                 "cwd": "/var/www/tasks"
             },
@@ -42,7 +42,7 @@
         {
             "label": "phpunit",
             "type": "shell",
-            "command": "phpunit-952.phar",
+            "command": "phpunit-954.phar",
             "options": {
                 "cwd": "/var/www/tasks"
             },
