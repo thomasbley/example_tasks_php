@@ -25,6 +25,9 @@ RUN useradd -m docker -u ${UID} -d /config -s /bin/bash
 
 USER docker
 
+ENV SERVICE_URL=https://open-vsx.org/vscode/gallery
+ENV ITEM_URL=https://open-vsx.org/vscode/item
+
 ADD getpsalm.psalm-vscode-plugin-1.2.2.vsix /tmp/
 
 RUN composer global require --no-suggest --no-progress --no-cache vimeo/psalm
