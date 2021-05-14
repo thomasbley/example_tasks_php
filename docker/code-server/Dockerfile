@@ -31,7 +31,7 @@ RUN composer global require --no-suggest --no-progress --no-cache vimeo/psalm
 
 RUN code-server --install-extension fterrag.vscode-php-cs-fixer \
                 --install-extension alphabotsec.vscode-eclipse-keybindings \
-                --install-extension bmewburn.vscode-intelephense-client \
+#                --install-extension bmewburn.vscode-intelephense-client \
                 --install-extension /tmp/getpsalm.psalm-vscode-plugin-1.2.2.vsix \
     && chmod -R a+w /config
 
