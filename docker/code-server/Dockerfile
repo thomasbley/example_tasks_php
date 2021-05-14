@@ -12,7 +12,7 @@ RUN apt-get -y update \
         php8.0-xml \
         php8.0-zip \
         git \
-    && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.9.3/code-server_3.9.3_amd64.deb \
+    && curl -#L -o /tmp/code-server.deb https://github.com/cdr/code-server/releases/download/v3.10.0/code-server_3.10.0_amd64.deb \
     && dpkg -i /tmp/code-server.deb \
     && apt-get upgrade -y \
     && apt-get clean \
