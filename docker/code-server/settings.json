@@ -1,5 +1,5 @@
 {
-    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.defaultProfile.linux": "/bin/bash",
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": false,
     "editor.folding": false,
