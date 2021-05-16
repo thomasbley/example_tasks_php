@@ -1,5 +1,4 @@
 {
-    "terminal.integrated.defaultProfile.linux": "/bin/bash",
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": false,
     "editor.folding": false,
@@ -31,16 +30,10 @@
         ".settings": true,
         "tests/coverage/": true
     },
-    "vscode-php-cs-fixer.toolPath": "/var/www/bin/phpcsfixer-3000.phar",
+    "terminal.integrated.defaultProfile.linux": "/bin/bash",
+    "vscode-php-cs-fixer.toolPath": "/config/.composer/vendor/bin/php-cs-fixer",
     "vscode-php-cs-fixer.config": "/var/www/phpcsfixer.conf",
     "vscode-php-cs-fixer.fixOnSave": false,
-    "intelephense.format.enable": false,
-    "intelephense.telemetry.enabled": false,
-    "intelephense.environment.phpVersion": "8.0.0",
-    "intelephense.stubs": [
-        "Core", "curl", "date", "dom", "filter", "hash", "json", "mbstring",
-        "openssl", "pcre", "PDO", "pdo_mysql", "SPL", "standard", "zlib", "Zend OPcache", "xml"
-    ],
     "psalm.psalmScriptPath": "/config/.composer/vendor/bin/psalm-language-server",
     "psalm.hideStatusMessageWhenRunning": true,
     "psalm.unusedVariableDetection": true

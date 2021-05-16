@@ -6,61 +6,58 @@
         {
             "label": "phpcsfixer",
             "type": "shell",
-            "command": "phpcsfixer-3000.phar fix --verbose --dry-run --diff --config phpcsfixer.conf",
+            "problemMatcher": [],
+            "command": "/config/.composer/vendor/bin/php-cs-fixer fix --verbose --dry-run --diff --config phpcsfixer.conf",
             "options": {
                 "cwd": "/var/www/tasks"
             },
             "presentation": {
                 "showReuseMessage": false,
-                "echo": false
+                "echo": false,
+                "clear": true
             }
         },
         {
             "label": "psalm",
             "type": "shell",
-            "command": "psalm-472.phar --no-cache",
+            "problemMatcher": [],
+            "command": "/config/.composer/vendor/bin/psalm --no-cache",
             "options": {
                 "cwd": "/var/www/tasks"
             },
             "presentation": {
                 "showReuseMessage": false,
-                "echo": false
+                "echo": false,
+                "clear": true
             }
         },
         {
             "label": "psalm_taint",
             "type": "shell",
-            "command": "psalm-472.phar --no-cache --taint-analysis",
+            "problemMatcher": [],
+            "command": "/config/.composer/vendor/bin/psalm --no-cache --taint-analysis",
             "options": {
                 "cwd": "/var/www/tasks"
             },
             "presentation": {
                 "showReuseMessage": false,
-                "echo": false
+                "echo": false,
+                "clear": true
             }
         },
         {
             "label": "phpunit",
             "type": "shell",
+            "problemMatcher": [],
             "command": "phpunit-954.phar",
             "options": {
                 "cwd": "/var/www/tasks"
             },
             "presentation": {
                 "showReuseMessage": false,
-                "echo": false
+                "echo": false,
+                "clear": true
             }
-        },
-        {
-            "label": "Tests",
-            "group": "test",
-            "dependsOn": [
-                "phpcsfixer",
-                "psalm",
-                "psalm_taint",
-                "phpunit"
-            ],
-            "dependsOrder": "sequence"
         }
     ]
 }

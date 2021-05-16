@@ -2,6 +2,21 @@
 [
     {
         "key": "ctrl+shift+t",
-        "command": "workbench.action.tasks.test"
+        "command": "workbench.action.tasks.runTask"
+    },
+    // normally: ctrl+tab
+    {
+        "key": "ctrl+[Backquote]",
+        "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup"
+    },
+    {
+        "key": "ctrl+[Backquote]",
+        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
+    },
+    // normally: ctrl+w
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.closeActiveEditor"
     }
 ]
