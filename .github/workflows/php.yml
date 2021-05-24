@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build the Docker image
+    - name: Build PHP docker image
       run: docker build docker/php80-alpine/ --tag localbuild/php80-alpine:latest
 
     - name: Trivy vulnerability scanner in repo mode
