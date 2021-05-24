@@ -8,6 +8,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: test
+      run: apt-cache search trivy
+
+    - name: security checker
+      run: trivy -v
+
     - name: local PHP security checker
       run: find ./ -name "composer.lock" -not -path "*/vendor/*" | xargs -ti bin/localphpsecuritychecker-100 --path={}
 
