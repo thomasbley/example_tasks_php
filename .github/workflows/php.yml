@@ -11,18 +11,18 @@ jobs:
     - name: Build the Docker image
       run: docker build docker/php80-alpine/ --tag localbuild/php80-alpine:latest
 
-    - name: Run Trivy vulnerability scanner in repo mode
+    - name: Trivy vulnerability scanner in repo mode
       uses: aquasecurity/trivy-action@master
       with:
-        scan-type: 'fs'
-        exit-code: '1'
+        scan-type: fs
+        exit-code: 1
         scan-ref: ./
 
-    - name: Run Trivy vulnerability scanner
+    - name: Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
-        image-ref: 'localbuild/php80-alpine:latest'
-        exit-code: '1'
+        image-ref: localbuild/php80-alpine:latest
+        exit-code: 1
 
     - name: local PHP security checker
       run: find ./ -name "composer.lock" -not -path "*/vendor/*" | xargs -ti bin/localphpsecuritychecker-100 --path={}
