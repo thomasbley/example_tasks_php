@@ -17,9 +17,6 @@ on completion.
     mkdir -m 0777 tasks/src/vendor
     docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm composer
 
-    # build code-server container
-    docker-compose build --build-arg UID=$(id -u) code-server
-
     # start containers
     docker-compose up
     docker-compose up -d
@@ -71,8 +68,6 @@ on completion.
     docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm apib2swagger
 
 #### URLs
-
-    http://127.0.0.1:8000/?folder=/var/www (VS-Code IDE, hit Crtl+Shift+t to run tasks)
 
     http://127.0.0.1:8080/v1/tasks (API endpoint)
 

@@ -16,7 +16,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: composer-213.phar
+    entrypoint: composer-214.phar
     command: install --no-dev --no-cache --no-progress -o -a --ignore-platform-reqs
     volumes:
       - ./tasks/:/var/www
@@ -25,7 +25,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: composer-213.phar
+    entrypoint: composer-214.phar
     command: validate --no-cache
     volumes:
       - ./tasks/:/var/www
@@ -45,7 +45,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: psalm-472.phar --no-cache --show-info=true
+    entrypoint: psalm-473.phar --no-cache --show-info=true
     volumes:
       - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
@@ -53,7 +53,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: psalm-472.phar --no-cache --taint-analysis
+    entrypoint: psalm-473.phar --no-cache --taint-analysis
     volumes:
       - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
