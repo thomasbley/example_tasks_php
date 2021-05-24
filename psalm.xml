@@ -20,13 +20,11 @@
 
     <issueHandlers>
         <PropertyNotSetInConstructor errorLevel="suppress" />
-        <InternalMethod errorLevel="suppress" />
         
         <UnusedClass errorLevel="info">
             <errorLevel type="suppress">
                 <directory name="tasks/tests/" />
             </errorLevel>
         </UnusedClass>
-        
     </issueHandlers>
 </psalm>

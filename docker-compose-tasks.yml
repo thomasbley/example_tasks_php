@@ -45,7 +45,7 @@ services:
     image: example_tasks_php
     cap_drop: [all]
     working_dir: /var/www
-    entrypoint: psalm-472.phar --no-cache
+    entrypoint: psalm-472.phar --no-cache --show-info=true
     volumes:
       - ./tasks/:/var/www
       - ./bin:/usr/local/sbin
