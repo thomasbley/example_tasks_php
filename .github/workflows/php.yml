@@ -54,6 +54,9 @@ jobs:
     - name: Run psalm taint analysis
       run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm psalm_taint
 
+    - name: Run phpstan
+      run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phpstan
+
     - name: Run update datebase
       run: docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm shell update_database.php
 
