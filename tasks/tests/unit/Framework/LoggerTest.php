@@ -10,7 +10,7 @@ class LoggerTest extends TestCase
 {
     public function testLog(): void
     {
-        $logfile = tempnam('/tmp', 'loggertest');
+        $logfile = tempnam('/tmp', 'loggertest') ?: '';
 
         $app = new App([], [], [], []);
         $app->getConfig()->logfile = $logfile;
@@ -27,7 +27,7 @@ class LoggerTest extends TestCase
 
     public function testLogWarning(): void
     {
-        $logfile = tempnam('/tmp', 'loggertest');
+        $logfile = tempnam('/tmp', 'loggertest') ?: '';
 
         $app = new App([], [], [], []);
         $app->getConfig()->logfile = $logfile;
@@ -42,7 +42,7 @@ class LoggerTest extends TestCase
 
     public function testLogError(): void
     {
-        $logfile = tempnam('/tmp', 'loggertest');
+        $logfile = tempnam('/tmp', 'loggertest') ?: '';
 
         $app = new App([], [], [], []);
         $app->getConfig()->logfile = $logfile;

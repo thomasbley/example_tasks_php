@@ -8,6 +8,10 @@ if (php_sapi_name() != 'cli') {
 
 $phpSocket = fsockopen('php', 9000);
 
+if (empty($phpSocket)) {
+    throw new Exception('connection error');
+}
+
 // fcgi GET /status HTTP/1.1
 $packet = '"\u0001\u0001\u0000\u0000\u0000\b\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0004' .
     '\u0000\u0000\u0000?\u0001\u0000\u000f\u0007SCRIPT_FILENAME\/status\u000b\u0007SCRIPT_NAME\/status\u000e\u0003' .

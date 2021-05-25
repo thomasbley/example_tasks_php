@@ -50,6 +50,7 @@ on completion.
 
     docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm psalm
     docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm psalm_taint
+    docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phpstan
     docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phpcsfixer
     docker-compose -f docker-compose.yml -f docker-compose-tasks.yml run -u $(id -u) --rm phploc
 

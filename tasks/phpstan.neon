@@ -1,0 +1,26 @@
+parameters:
+  level: max
+  paths:
+    - src/
+    - tests/
+  excludePaths:
+    - src/vendor/
+  bootstrapFiles:
+    - tests/autoload.php
+  ignoreErrors:
+    - message: '#expects string, string\|false given.#'
+      path: ./
+    # PDO::ERRMODE_EXCEPTION is used by default
+    - message: '#Cannot call method \w+\(\) on PDOStatement\|false.#'
+      path: ./
+    - message: '#mixed is not subtype#'
+      path: tests/
+    - message: '#expects callable\(\): mixed, array\([^\)]+\) given.#'
+      path: tests/
+    - message: '#Cannot access property#'
+      path: tests/
+  checkMissingIterableValueType: false
+  checkFunctionNameCase: true
+  checkInternalClassCaseSensitivity: true
+  checkMissingClosureNativeReturnTypehintRule: true
+  checkTooWideReturnTypesInProtectedAndPublicMethods: true

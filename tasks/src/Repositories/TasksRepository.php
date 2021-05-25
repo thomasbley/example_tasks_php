@@ -92,7 +92,7 @@ class TasksRepository
         $statement = $db->prepare($query);
         $statement->execute([$customer->id, date('Y-m-d', strtotime('+1 week'))]);
 
-        return $statement->fetchAll(PDO::FETCH_CLASS, Task::class);
+        return $statement->fetchAll(PDO::FETCH_CLASS, Task::class) ?: [];
     }
 
     /**
@@ -111,6 +111,6 @@ class TasksRepository
         $statement = $db->prepare($query);
         $statement->execute([$customer->id]);
 
-        return $statement->fetchAll(PDO::FETCH_CLASS, Task::class);
+        return $statement->fetchAll(PDO::FETCH_CLASS, Task::class) ?: [];
     }
 }

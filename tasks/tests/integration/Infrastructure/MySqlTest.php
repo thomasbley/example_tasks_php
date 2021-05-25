@@ -18,7 +18,7 @@ class MySqlTest extends TestCase
         $statement = $app->getDatabase()->prepare($query);
         $statement->execute(['character_set_%', 'collation%']);
 
-        $variables = $statement->fetchAll(PDO::FETCH_KEY_PAIR);
+        $variables = $statement->fetchAll(PDO::FETCH_KEY_PAIR) ?: [];
 
         $subset = [
             'character_set_client' => 'utf8mb4',

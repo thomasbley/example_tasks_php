@@ -15,7 +15,7 @@ $path = __DIR__ . '/../Migrations/';
 $app = new App([], [], $_SERVER, []);
 $repo = $app->getMigrationsRepository();
 
-foreach (scandir($path) as $file) {
+foreach (scandir($path) ?: [] as $file) {
     if (strpos($file, '.sql') === false || $repo->isImported($file)) {
         continue;
     }

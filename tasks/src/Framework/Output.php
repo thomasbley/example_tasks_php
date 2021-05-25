@@ -26,6 +26,6 @@ class Output
      */
     protected function escape(array $value): string
     {
-        return json_encode($value);
+        return json_encode($value) ?: '';
     }
 }
