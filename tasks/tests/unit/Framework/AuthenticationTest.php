@@ -52,8 +52,7 @@ class AuthenticationTest extends TestCase
         $actual = $authentication->getCustomer($token, $config->publicKey);
 
         $this->assertNotEmpty($actual);
-        $this->assertSame(42, $actual->id);
-        $this->assertSame('foo.bar@example.com', $actual->email);
+        $this->assertEquals($customer, $actual);
     }
 
     public function testGetCustomerInvalidToken(): void
